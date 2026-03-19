@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import HeroChatCarousel from "@/components/HeroChatCarousel";
+import GlassSurface from "@/components/ui/GlassSurface";
 
 const wordAnim = (i: number) => ({
   initial: { opacity: 0, y: 8 },
