@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState, useRef, useEffect } from "react";
+import { motion, AnimatePresence, useMotionValue, useSpring } from "framer-motion";
 import { ArrowRight, ChevronDown } from "lucide-react";
 
 const steps = [
@@ -35,69 +35,125 @@ const steps = [
 
 const OnboardingDemo = () => {
   const [expandedId, setExpandedId] = useState<string | null>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  // Drag constraints handling
+  const onDragEnd = (event: any, info: any) => {
+    const swipeThreshold = 50;
+    if (info.offset.x < -swipeThreshold && activeIndex < steps.length - 1) {
+      setActiveIndex(activeIndex + 1);
+    } else if (info.offset.x > swipeThreshold && activeIndex > 0) {
+      setActiveIndex(activeIndex - 1);
+    }
+  };
 
   return (
-    <div className="mt-20 grid grid-cols-1 md:grid-cols-4 gap-6 items-start">
-      {steps.map((step) => {
-        const isExpanded = expandedId === step.id;
-        
-        return (
-          <motion.div
-            key={step.id}
-            layout
-            onClick={() => setExpandedId(isExpanded ? null : step.id)}
-            className={`group relative flex flex-col min-h-[420px] rounded-[2.5rem] bg-white border border-black/[0.05] shadow-[0_15px_40px_rgba(0,0,0,0.03)] overflow-hidden cursor-pointer transition-colors duration-500 hover:border-black/15 ${isExpanded ? 'z-20' : 'z-10'}`}
-          >
-            {/* Body */}
-            <div className="flex-1 px-8 relative flex flex-col pt-12">
-              <div className="relative z-10 w-full">
-                <motion.h4 
-                  layout="position"
-                  className="text-3xl font-black tracking-tighter text-foreground leading-[1.05] mb-6 flex items-start gap-3"
-                >
-                  <span className="flex-1">{step.title}</span>
-                </motion.h4>
-                
-                <motion.div 
-                  layout
-                  initial={false}
-                  animate={{ 
-                    height: isExpanded ? "auto" : "4.5rem",
-                    opacity: 1
-                  }}
-                  transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
-                  className="overflow-hidden"
-                >
-                  <p className="text-[14px] leading-relaxed text-muted-foreground/80 font-medium">
-                    {isExpanded ? step.description : step.shortDesc}
-                  </p>
-                </motion.div>
-                
-                <motion.div
-                  layout="position"
-                  animate={{ rotate: isExpanded ? 180 : 0 }}
-                  transition={{ duration: 0.3 }}
-                  className="mt-3 flex justify-start"
-                >
-                  <ChevronDown className="h-4 w-4 text-foreground/40 font-black" />
-                </motion.div>
-              </div>
-            </div>
+    <div className="mt-20 w-full overflow-hidden sm:overflow-visible">
+      <div className="md:hidden">
+        {/* Mobile Swipe Container */}
+        <motion.div 
+          className="flex gap-6 px-4 cursor-grab active:cursor-grabbing"
+          drag="x"
+          dragConstraints={{ left: 0, right: 0 }}
+          onDragEnd={onDragEnd}
+          animate={{ x: `calc(-${activeIndex * 100}% - ${activeIndex * 1.5}rem)` }}
+          transition={{ type: "spring", damping: 30, stiffness: 200 }}
+        >
+          {steps.map((step, idx) => {
+            const isExpanded = expandedId === step.id;
+            return (
+              <motion.div
+                key={step.id}
+                layout
+                className={`flex-shrink-0 w-full min-h-[420px] rounded-[2.5rem] bg-white border border-black/[0.05] shadow-[0_15px_40px_rgba(0,0,0,0.03)] overflow-hidden transition-colors duration-500 ${isExpanded ? 'z-20' : 'z-10'}`}
+                onClick={() => setExpandedId(isExpanded ? null : step.id)}
+              >
+                <div className="flex-1 px-8 relative flex flex-col pt-12 pb-8">
+                  <div className="relative z-10 w-full">
+                    <motion.h4 layout="position" className="text-3xl font-black tracking-tighter text-foreground leading-[1.05] mb-6">
+                      {step.title}
+                    </motion.h4>
+                    <motion.div 
+                      layout 
+                      initial={false}
+                      animate={{ height: isExpanded ? "auto" : "4.5rem" }}
+                      className="overflow-hidden"
+                    >
+                      <p className="text-[14px] leading-relaxed text-muted-foreground/80 font-medium">
+                        {isExpanded ? step.description : step.shortDesc}
+                      </p>
+                    </motion.div>
+                    <motion.div layout="position" animate={{ rotate: isExpanded ? 180 : 0 }} className="mt-4">
+                      <ChevronDown className="h-4 w-4 text-foreground/40" />
+                    </motion.div>
+                  </div>
+                </div>
+                <div className="mt-auto px-8 py-6 bg-gray-50/50 border-t border-black/[0.03] flex items-center justify-end">
+                  <span className="text-[18px] font-black uppercase tracking-tight text-foreground mr-3">STEP</span>
+                  <div className="w-9 h-9 rounded-full bg-black text-white text-lg font-black flex items-center justify-center">
+                    {parseInt(step.id)}
+                  </div>
+                </div>
+              </motion.div>
+            );
+          })}
+        </motion.div>
 
-            <motion.div 
-              layout="position"
-              className="mt-auto px-8 py-6 bg-gray-50/50 border-t border-black/[0.03] flex items-center justify-end"
+        {/* Minimal Step Indicator */}
+        <div className="mt-8 flex justify-center gap-2">
+          {steps.map((_, idx) => (
+            <motion.div
+              key={idx}
+              className={`h-1.5 rounded-full transition-all duration-300 ${activeIndex === idx ? 'w-8 bg-black' : 'w-1.5 bg-black/10'}`}
+              onClick={() => setActiveIndex(idx)}
+            />
+          ))}
+        </div>
+      </div>
+
+      {/* Desktop Grid Layout */}
+      <div className="hidden md:grid grid-cols-4 gap-6 items-start">
+        {steps.map((step) => {
+          const isExpanded = expandedId === step.id;
+          return (
+            <motion.div
+              key={step.id}
+              layout
+              onClick={() => setExpandedId(isExpanded ? null : step.id)}
+              className={`group relative flex flex-col min-h-[420px] rounded-[2.5rem] bg-white border border-black/[0.05] shadow-[0_15px_40px_rgba(0,0,0,0.03)] overflow-hidden cursor-pointer transition-colors duration-500 hover:border-black/15 ${isExpanded ? 'z-20' : 'z-10'}`}
             >
-              <span className="text-[18px] font-black uppercase tracking-tight text-foreground mr-3">
-                STEP
-              </span>
-              <button className="w-9 h-9 rounded-full bg-black text-white text-lg font-black flex items-center justify-center transition-all hover:bg-black/80">
-                {parseInt(step.id)}
-              </button>
+              <div className="flex-1 px-8 relative flex flex-col pt-12">
+                <div className="relative z-10 w-full">
+                  <motion.h4 layout="position" className="text-3xl font-black tracking-tighter text-foreground leading-[1.05] mb-6 flex items-start gap-3">
+                    <span className="flex-1">{step.title}</span>
+                  </motion.h4>
+                  <motion.div 
+                    layout 
+                    initial={false}
+                    animate={{ height: isExpanded ? "auto" : "4.5rem", opacity: 1 }}
+                    transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
+                    className="overflow-hidden"
+                  >
+                    <p className="text-[14px] leading-relaxed text-muted-foreground/80 font-medium">
+                      {isExpanded ? step.description : step.shortDesc}
+                    </p>
+                  </motion.div>
+                  <motion.div layout="position" animate={{ rotate: isExpanded ? 180 : 0 }} className="mt-3 flex justify-start">
+                    <ChevronDown className="h-4 w-4 text-foreground/40 font-black" />
+                  </motion.div>
+                </div>
+              </div>
+              <motion.div layout="position" className="mt-auto px-8 py-6 bg-gray-50/50 border-t border-black/[0.03] flex items-center justify-end">
+                <span className="text-[18px] font-black uppercase tracking-tight text-foreground mr-3">STEP</span>
+                <button className="w-9 h-9 rounded-full bg-black text-white text-lg font-black flex items-center justify-center transition-all hover:bg-black/80">
+                  {parseInt(step.id)}
+                </button>
+              </motion.div>
             </motion.div>
-          </motion.div>
-        );
-      })}
+          );
+        })}
+      </div>
     </div>
   );
 };
