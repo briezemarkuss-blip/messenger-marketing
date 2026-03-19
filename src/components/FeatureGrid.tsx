@@ -84,7 +84,7 @@ const FeatureGrid = () => {
                           { label: "Security", value: "ISO 27001 & PCI DSS Certified" },
                           { label: "Performance", value: "Proven 10x Conversion Evolution" }
                         ].map((row) => (
-                          <div key={row.label} className="border-l-2 border-primary/20 pl-4">
+                          <div key={row.label} className="">
                             <p className="text-[11px] font-black text-primary/60 uppercase tracking-widest">{row.label}</p>
                             <p className="mt-1 text-[15px] font-bold text-foreground">{row.value}</p>
                           </div>
@@ -119,7 +119,7 @@ const FeatureGrid = () => {
                         { label: "Security", value: "Standard SaaS" },
                         { label: "Performance", value: "General automation" }
                       ].map((row) => (
-                        <div key={row.label} className="border-l-2 border-black/[0.03] pl-4">
+                        <div key={row.label} className="">
                           <p className="text-[11px] font-black text-foreground/40 uppercase tracking-widest">{row.label}</p>
                           <p className="mt-1 text-[15px] font-medium text-foreground/70">{row.value}</p>
                         </div>
@@ -175,7 +175,7 @@ const FeatureGrid = () => {
                         { label: "Security", value: "ISO 27001 & PCI DSS Certified" },
                         { label: "Performance", value: "Proven 10x Conversion Evolution" }
                       ].map((row) => (
-                        <div key={row.label} className="border-l-2 border-primary/20 pl-4">
+                        <div key={row.label} className="">
                           <p className="text-[11px] font-black text-primary/60 uppercase tracking-widest">{row.label}</p>
                           <p className="mt-1 text-[15px] font-bold text-foreground">{row.value}</p>
                         </div>
@@ -210,7 +210,7 @@ const FeatureGrid = () => {
                       { label: "Security", value: "Standard SaaS" },
                       { label: "Performance", value: "General automation" }
                     ].map((row) => (
-                      <div key={row.label} className="border-l-2 border-black/[0.03] pl-4">
+                      <div key={row.label} className="">
                         <p className="text-[11px] font-black text-foreground/40 uppercase tracking-widest">{row.label}</p>
                         <p className="mt-1 text-[15px] font-medium text-foreground/70">{row.value}</p>
                       </div>
