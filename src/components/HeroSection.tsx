@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import HeroChatCarousel from "@/components/HeroChatCarousel";
+import { Separator } from "@/components/ui/separator";
 
 const wordAnim = (i: number) => ({
   initial: { opacity: 0, y: 8 },
@@ -72,7 +73,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="relative overflow-hidden px-4 pt-32 sm:pt-20 lg:px-8 lg:pt-56 pb-16 sm:pb-20">
+    <section className="relative overflow-hidden px-4 pt-24 sm:pt-20 lg:px-8 lg:pt-56 pb-16 sm:pb-20">
       <div className="mx-auto max-w-6xl">
         <div className="text-center">
           {/* Desktop headlines */}
@@ -110,7 +111,7 @@ const HeroSection = () => {
 
           {/* Mobile headlines — bold typographic poster */}
           <div className="sm:hidden" style={{ letterSpacing: "-0.05em" }}>
-            <h1 className="text-6xl font-black text-foreground leading-[0.9]">
+            <h1 className="text-5xl font-black text-foreground leading-[0.9]">
               {[
                 { text: "Stop Being", highlight: false, idx: 0 },
                 { text: "Ignored in", highlight: false, idx: 1 },
@@ -122,7 +123,7 @@ const HeroSection = () => {
               ))}
             </h1>
 
-            <h1 className="text-6xl font-black text-foreground leading-[0.9] mt-8">
+            <h1 className="text-5xl font-black text-foreground leading-[0.9] mt-8">
               {[
                 { text: "Get 90%", highlight: true, idx: 3 },
                 { text: "Open Rates", highlight: true, idx: 4 },
@@ -154,11 +155,13 @@ const HeroSection = () => {
           </motion.div>
 
 
-          <motion.div className="mt-10 flex justify-center" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 2.5, ease: [0.42, 0, 0.58, 1] }}>
+          <motion.div className="mt-4 flex justify-center" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 2.5, ease: [0.42, 0, 0.58, 1] }}>
             <div className="max-w-2xl w-full">
-              <h3 className="text-base font-semibold tracking-tight text-foreground sm:text-lg min-h-[1.75rem] text-center relative">
-                {/* Invisible full phrase for stable width */}
-                <span className="invisible">{TYPEWRITER_PHRASES[currentPhraseIdx]}</span>
+              <h3 className="text-base font-semibold tracking-tight text-foreground sm:text-lg min-h-[3rem] sm:min-h-[1.75rem] text-center relative flex items-center justify-center">
+                {/* Invisible holder to ensure enough space for the longest phrase */}
+                <span className="invisible h-0 overflow-hidden">
+                  {TYPEWRITER_PHRASES.reduce((a, b) => a.length > b.length ? a : b)}
+                </span>
                 {/* Visible typed portion overlaid */}
                 <span className="absolute inset-0 flex items-center justify-center">
                   <span>
@@ -173,7 +176,7 @@ const HeroSection = () => {
 
           {/* CTAs — "Action" */}
           <motion.div
-            className="mt-4 flex flex-col items-center gap-3 sm:flex-row sm:justify-center sm:gap-5"
+            className="mt-10 flex flex-col items-center gap-3 sm:flex-row sm:justify-center sm:gap-5"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 2.5, ease: [0.42, 0, 0.58, 1] }}
@@ -183,11 +186,12 @@ const HeroSection = () => {
             </Button>
           </motion.div>
 
-          {/* Spacer to bring carousel closer to hero content */}
-          <div className="h-[200px] sm:h-[320px]" aria-hidden="true" />
+          <div className="flex justify-center pt-16 pb-24 sm:pt-24 sm:pb-32">
+            <Separator className="w-1/2 max-w-2xl opacity-20" />
+          </div>
 
           {/* Chat Carousel — "Proof" */}
-          <div>
+          <div className="max-sm:snap-start scroll-mt-20">
             <HeroChatCarousel />
           </div>
         </div>

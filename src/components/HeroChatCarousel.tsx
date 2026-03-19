@@ -584,8 +584,11 @@ const HeroChatCarousel = () => {
     activeTab?.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
   }, []);
 
-  const scrollToTop = () => {
-    document.getElementById("industry-tabs")?.scrollIntoView({ behavior: "smooth", block: "start" });
+  const scrollToSection = () => {
+    // Only scroll if we are on mobile (sm breakpoint is 640px)
+    if (window.innerWidth < 640) {
+      document.getElementById("chats-we-power")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
   };
 
   const goPrev = () => {
@@ -594,7 +597,7 @@ const HeroChatCarousel = () => {
       scrollActiveTabIntoView(nextIndex);
       return nextIndex;
     });
-    scrollToTop();
+    scrollToSection();
   };
   const goNext = () => {
     setActiveIndex((prev) => {
@@ -602,11 +605,11 @@ const HeroChatCarousel = () => {
       scrollActiveTabIntoView(nextIndex);
       return nextIndex;
     });
-    scrollToTop();
+    scrollToSection();
   };
 
   return (
-    <div id="chats-we-power" className="mx-auto w-full max-w-[560px] text-left scroll-mt-24">
+    <div id="chats-we-power" className="mx-auto w-full max-w-[560px] text-left scroll-mt-20 sm:scroll-mt-24">
       {/* Section heading */}
       <motion.h2
         className="text-center text-2xl font-extrabold tracking-tight text-foreground sm:text-3xl lg:text-4xl"
@@ -628,7 +631,7 @@ const HeroChatCarousel = () => {
       </motion.p>
 
       {/* Industry tabs */}
-      <div id="industry-tabs" className="relative mt-8 scroll-mt-20">
+      <div id="industry-tabs" className="relative mt-8">
         <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-6 bg-gradient-to-r from-background to-transparent" />
         <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-6 bg-gradient-to-l from-background to-transparent" />
         <motion.div
@@ -667,6 +670,7 @@ const HeroChatCarousel = () => {
             onClick={() => {
               setActiveIndex(tab.index);
               scrollActiveTabIntoView(tab.index);
+              scrollToSection();
             }}
             className={`relative shrink-0 whitespace-nowrap rounded-full px-5 py-2 text-sm font-medium transition-all duration-200 ${
             activeIndex === tab.index ?

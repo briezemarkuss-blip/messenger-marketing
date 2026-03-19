@@ -22,21 +22,21 @@ const SocialProof = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <p className="text-4xl font-black tracking-tighter text-foreground">
+            <p className="text-2xl sm:text-4xl font-black tracking-tighter text-foreground">
               500+ <span className="text-primary italic">Global Clients</span>
             </p>
-            <p className="mt-2 text-sm font-semibold text-muted-foreground/60 uppercase tracking-wider">
+            <p className="mt-2 text-[10px] sm:text-sm font-semibold text-muted-foreground/60 uppercase tracking-wider">
               Delivering data-driven results since 2003
             </p>
           </motion.div>
           
-          <div className="relative flex overflow-x-hidden grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-500">
-            <div className="flex animate-marquee whitespace-nowrap items-center">
-              {[...brands, ...brands, ...brands].map((brand, i) => (
+          <div className="relative flex overflow-hidden scrollbar-hide py-4 grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-500">
+            <div className="flex w-max animate-marquee whitespace-nowrap items-center py-2">
+              {[...brands, ...brands].map((brand, i) => (
                 <div 
                   key={`${brand.name}-${i}`} 
-                  className={`flex items-center justify-center px-4 ${
-                    brand.name === "Samsung" || brand.name === "Jysk" || brand.name === "Google" ? "w-[120px]" : "w-[150px]"
+                  className={`flex items-center justify-center px-8 ${
+                    brand.name === "Samsung" || brand.name === "Jysk" || brand.name === "Google" ? "w-[140px]" : "w-[180px]"
                   }`}
                 >
                   <img
