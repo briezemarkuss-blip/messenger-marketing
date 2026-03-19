@@ -9,7 +9,6 @@ const steps = [
     shortDesc: "Our Marketing Executives assess global data to identify growth-aligned infrastructure needs.",
     description: "Our Marketing Executives assess global data to identify growth-aligned infrastructure needs. We perform a deep dive into your existing customer touchpoints, analyzing performance metrics and identifying high-impact areas where AI-driven automation can drive significant conversion lifts.",
     tag: "Audit",
-    bgImage: "/bg-1.webp"
   },
   {
     id: "02",
@@ -17,7 +16,6 @@ const steps = [
     shortDesc: "Bespoke, empathetic customer flows designed with high-quality copy that resonates.",
     description: "Bespoke, empathetic customer flows designed with high-quality copy that resonates. Our strategic design team maps out every step of the customer journey, ensuring that each interaction feels personal, helpful, and perfectly aligned with your brand's unique voice and objectives.",
     tag: "Design",
-    bgImage: "/bg-2.webp"
   },
   {
     id: "03",
@@ -25,7 +23,6 @@ const steps = [
     shortDesc: "AI Engineers validate a 10x ROI on a specific data subset – refined and bulletproofed.",
     description: "AI Engineers validate a 10x ROI on a specific data subset – refined and bulletproofed. Before a full-scale rollout, we deploy a targeted pilot to verify our hypotheses. This phase allows us to fine-tune the AI's logic, ensuring a robust and high-performing system ready for scale.",
     tag: "Validation",
-    bgImage: "/bg-3.webp"
   },
   {
     id: "04",
@@ -33,7 +30,6 @@ const steps = [
     shortDesc: "End-to-end management across all regions and channels, ensuring consistent global performance.",
     description: "End-to-end management across all regions and channels, ensuring consistent global performance. Once validated, we scale your AI solution across all identified markets. Our team provides ongoing oversight and optimization, guaranteeing that your global presence remains strong and efficient.",
     tag: "Deployment",
-    bgImage: "/bg-4.webp"
   },
 ];
 
@@ -56,7 +52,7 @@ const OnboardingDemo = () => {
     <div className="mt-20 w-full overflow-hidden sm:overflow-visible">
       <div className="md:hidden">
         {/* Mobile Swipe Container */}
-        <motion.div 
+        <motion.div
           className="flex gap-4 px-6 cursor-grab active:cursor-grabbing touch-pan-y"
           drag="x"
           dragConstraints={{ left: 0, right: 0 }}
@@ -71,32 +67,31 @@ const OnboardingDemo = () => {
               <motion.div
                 key={step.id}
                 layout
-                className={`flex-shrink-0 w-[calc(100vw-3rem)] min-h-[440px] rounded-[2.5rem] bg-white border border-black/[0.05] shadow-[0_15px_40px_rgba(0,0,0,0.03)] overflow-hidden transition-colors duration-500 relative ${isExpanded ? 'z-20' : 'z-10'}`}
+                className={`flex-shrink-0 w-[calc(100vw-3rem)] min-h-[440px] rounded-[2.5rem] bg-white border border-black/[0.05] shadow-[0_15px_40px_rgba(0,0,0,0.03)] overflow-hidden transition-colors duration-500 ${isExpanded ? 'z-20' : 'z-10'}`}
                 onClick={() => setExpandedId(isExpanded ? null : step.id)}
               >
-                {/* Background Image with Overlay */}
-                <div 
-                  className="absolute inset-0 z-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-                  style={{ backgroundImage: `url(${step.bgImage})` }}
-                />
-                <div className="absolute inset-0 z-0 bg-white/80" />
-
-                <div className="flex-1 px-8 relative z-10 flex flex-col pt-12 pb-8">
+                <div className="flex-1 px-8 relative flex flex-col pt-12 pb-8">
                   <div className="relative z-10 w-full">
                     <motion.h4 layout="position" className="text-3xl font-black tracking-tighter text-foreground leading-[1.05] mb-6">
                       {step.title}
                     </motion.h4>
-                    <motion.div 
-                      layout 
+                    <motion.div
+                      layout
                       initial={false}
                       animate={{ height: isExpanded ? "auto" : "4.5rem" }}
+                      transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
                       className="overflow-hidden"
                     >
                       <p className="text-[14px] leading-relaxed text-muted-foreground/80 font-medium">
                         {isExpanded ? step.description : step.shortDesc}
                       </p>
                     </motion.div>
-                    <motion.div layout="position" animate={{ rotate: isExpanded ? 180 : 0 }} className="mt-4">
+                    <motion.div 
+                      layout="position" 
+                      animate={{ rotate: isExpanded ? 180 : 0 }} 
+                      transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
+                      className="mt-4"
+                    >
                       <ChevronDown className="h-4 w-4 text-foreground/40" />
                     </motion.div>
                   </div>
@@ -135,20 +130,13 @@ const OnboardingDemo = () => {
               onClick={() => setExpandedId(isExpanded ? null : step.id)}
               className={`group relative flex flex-col min-h-[420px] rounded-[2.5rem] bg-white border border-black/[0.05] shadow-[0_15px_40px_rgba(0,0,0,0.03)] overflow-hidden cursor-pointer transition-colors duration-500 hover:border-black/15 ${isExpanded ? 'z-20' : 'z-10'}`}
             >
-              {/* Background Image with Overlay */}
-              <div 
-                className="absolute inset-0 z-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-                style={{ backgroundImage: `url(${step.bgImage})` }}
-              />
-              <div className="absolute inset-0 z-0 bg-white/85 transition-opacity duration-500 group-hover:bg-white/75" />
-
-              <div className="flex-1 px-8 relative z-10 flex flex-col pt-12">
+              <div className="flex-1 px-8 relative flex flex-col pt-12">
                 <div className="relative z-10 w-full">
                   <motion.h4 layout="position" className="text-3xl font-black tracking-tighter text-foreground leading-[1.05] mb-6 flex items-start gap-3">
                     <span className="flex-1">{step.title}</span>
                   </motion.h4>
-                  <motion.div 
-                    layout 
+                  <motion.div
+                    layout
                     initial={false}
                     animate={{ height: isExpanded ? "auto" : "4.5rem", opacity: 1 }}
                     transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
@@ -158,7 +146,12 @@ const OnboardingDemo = () => {
                       {isExpanded ? step.description : step.shortDesc}
                     </p>
                   </motion.div>
-                  <motion.div layout="position" animate={{ rotate: isExpanded ? 180 : 0 }} className="mt-3 flex justify-start">
+                  <motion.div 
+                    layout="position" 
+                    animate={{ rotate: isExpanded ? 180 : 0 }} 
+                    transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
+                    className="mt-3 flex justify-start"
+                  >
                     <ChevronDown className="h-4 w-4 text-foreground/40 font-black" />
                   </motion.div>
                 </div>
