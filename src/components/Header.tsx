@@ -21,11 +21,24 @@ const Header = () => {
           <div className="flex items-center gap-8">
             <a href="/" className="flex items-center hover:opacity-90 transition-opacity group">
               <span className="text-[18px] font-black tracking-tight text-foreground lowercase">
-                scandiweb
+                messenger
               </span>
-              <span className="text-[18px] font-black tracking-tighter text-primary ml-1.5 italic transition-transform group-hover:scale-110">
-                AI
-              </span>
+              <div className="relative flex items-center justify-center ml-1.5 transition-transform group-hover:scale-110">
+                <svg 
+                  viewBox="0 0 24 24" 
+                  className="w-9 h-9 text-primary"
+                  fill="none" 
+                  stroke="currentColor" 
+                  strokeWidth="1.5"
+                  strokeLinecap="round" 
+                  strokeLinejoin="round"
+                >
+                  <path d="M12 2C6.477 2 2 6.145 2 11.258c0 2.91 1.455 5.503 3.735 7.152v3.59l3.435-1.886c.9.248 1.854.385 2.83.385 5.523 0 10-4.145 10-9.258S17.523 2 12 2z" />
+                </svg>
+                <span className="absolute inset-0 flex items-center justify-center text-[13px] font-[900] text-primary uppercase tracking-tighter italic ml-[-2px]">
+                  AI
+                </span>
+              </div>
             </a>
             
             {/* Desktop Navigation */}
