@@ -19,8 +19,13 @@ const Header = () => {
       <header className="border-b border-border/60 bg-background/80 backdrop-blur-sm">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6">
           <div className="flex items-center gap-8">
-            <a href="/" className="text-[17px] font-bold tracking-tight text-foreground hover:opacity-80 transition-opacity">
-              scandiweb AI
+            <a href="/" className="flex items-center hover:opacity-90 transition-opacity group">
+              <span className="text-[18px] font-black tracking-tight text-foreground lowercase">
+                scandiweb
+              </span>
+              <span className="text-[18px] font-black tracking-tighter text-primary ml-1.5 italic transition-transform group-hover:scale-110">
+                AI
+              </span>
             </a>
             
             {/* Desktop Navigation */}
