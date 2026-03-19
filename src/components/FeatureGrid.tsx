@@ -60,35 +60,43 @@ const FeatureGrid = () => {
               >
                 {/* Scandiweb Managed Service */}
                 <div className="flex-shrink-0 w-[calc(100vw-3rem)] relative flex flex-col min-h-[460px] rounded-[2.5rem] bg-white border border-primary/20 shadow-[0_20px_50px_rgba(var(--primary-rgb),0.05)] overflow-hidden ring-1 ring-primary/10">
-                  <div className="flex justify-between items-center p-8 pb-4">
-                    <span className="text-[12px] font-black text-primary uppercase tracking-wider">
-                      scandiweb Managed Service
-                    </span>
-                  </div>
-                  
-                  <div className="flex-1 px-8 py-4">
-                    <h4 className="text-3xl font-black tracking-tighter text-foreground leading-[1.05] mb-8">
-                      White-Glove Growth
-                    </h4>
-                    <div className="space-y-6">
-                      {[
-                        { label: "Strategy", value: "Expert Strategists & Marketing Executives" },
-                        { label: "Integration", value: "Deep CDP & Order Behavior Integration" },
-                        { label: "Security", value: "ISO 27001 & PCI DSS Certified" },
-                        { label: "Performance", value: "Proven 10x Conversion Evolution" }
-                      ].map((row) => (
-                        <div key={row.label} className="border-l-2 border-primary/20 pl-4">
-                          <p className="text-[11px] font-black text-primary/60 uppercase tracking-widest">{row.label}</p>
-                          <p className="mt-1 text-[15px] font-bold text-foreground">{row.value}</p>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
+                  <div 
+                    className="absolute inset-0 z-0 bg-cover bg-center transition-transform duration-700"
+                    style={{ backgroundImage: 'url(/blue.jpg)' }}
+                  />
+                  <div className="absolute inset-0 z-0 bg-white/85" />
 
-                  <div className="mt-auto px-8 py-6 bg-primary/[0.03] border-t border-primary/10 flex items-center">
-                    <button className="h-10 px-6 rounded-full bg-black text-white text-[13px] font-bold ml-auto">
-                      Get a free quote
-                    </button>
+                  <div className="relative z-10 flex flex-col flex-1">
+                    <div className="flex justify-between items-center p-8 pb-4">
+                      <span className="text-[12px] font-black text-primary uppercase tracking-wider">
+                        scandiweb Managed Service
+                      </span>
+                    </div>
+                    
+                    <div className="flex-1 px-8 py-4">
+                      <h4 className="text-3xl font-black tracking-tighter text-foreground leading-[1.05] mb-8">
+                        White-Glove Growth
+                      </h4>
+                      <div className="space-y-6">
+                        {[
+                          { label: "Strategy", value: "Expert Strategists & Marketing Executives" },
+                          { label: "Integration", value: "Deep CDP & Order Behavior Integration" },
+                          { label: "Security", value: "ISO 27001 & PCI DSS Certified" },
+                          { label: "Performance", value: "Proven 10x Conversion Evolution" }
+                        ].map((row) => (
+                          <div key={row.label} className="border-l-2 border-primary/20 pl-4">
+                            <p className="text-[11px] font-black text-primary/60 uppercase tracking-widest">{row.label}</p>
+                            <p className="mt-1 text-[15px] font-bold text-foreground">{row.value}</p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="mt-auto px-8 py-6 bg-primary/[0.03] border-t border-primary/10 flex items-center">
+                      <button className="h-10 px-6 rounded-full bg-black text-white text-[13px] font-bold ml-auto">
+                        Get a free quote
+                      </button>
+                    </div>
                   </div>
                 </div>
 
@@ -142,36 +150,44 @@ const FeatureGrid = () => {
             {/* Desktop Grid Layout */}
             <div className="hidden md:grid md:grid-cols-2 gap-8">
               {/* Scandiweb Managed Service */}
-              <div className="relative flex flex-col min-h-[460px] rounded-[2.5rem] bg-white border border-primary/20 shadow-[0_20px_50px_rgba(var(--primary-rgb),0.05)] overflow-hidden ring-1 ring-primary/10 transition-all duration-500 hover:border-primary/40">
-                <div className="flex justify-between items-center p-8 pb-4">
-                  <span className="text-[12px] font-black text-primary uppercase tracking-wider">
-                    scandiweb Managed Service
-                  </span>
-                </div>
-                
-                <div className="flex-1 px-8 py-4">
-                  <h4 className="text-3xl font-black tracking-tighter text-foreground leading-[1.05] mb-8">
-                    White-Glove Growth
-                  </h4>
-                  <div className="space-y-6">
-                    {[
-                      { label: "Strategy", value: "Expert Strategists & Marketing Executives" },
-                      { label: "Integration", value: "Deep CDP & Order Behavior Integration" },
-                      { label: "Security", value: "ISO 27001 & PCI DSS Certified" },
-                      { label: "Performance", value: "Proven 10x Conversion Evolution" }
-                    ].map((row) => (
-                      <div key={row.label} className="border-l-2 border-primary/20 pl-4">
-                        <p className="text-[11px] font-black text-primary/60 uppercase tracking-widest">{row.label}</p>
-                        <p className="mt-1 text-[15px] font-bold text-foreground">{row.value}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
+              <div className="relative flex flex-col min-h-[460px] rounded-[2.5rem] bg-white border border-primary/20 shadow-[0_20px_50px_rgba(var(--primary-rgb),0.05)] overflow-hidden ring-1 ring-primary/10 transition-all duration-500 hover:border-primary/40 group/card">
+                <div 
+                  className="absolute inset-0 z-0 bg-cover bg-center transition-transform duration-700 group-hover/card:scale-105"
+                  style={{ backgroundImage: 'url(/blue.jpg)' }}
+                />
+                <div className="absolute inset-0 z-0 bg-white/85 transition-opacity duration-500 group-hover/card:bg-white/75" />
 
-                <div className="mt-auto px-8 py-6 bg-primary/[0.03] border-t border-primary/10 flex items-center">
-                  <button className="h-10 px-6 rounded-full bg-black text-white text-[13px] font-bold ml-auto">
-                    Get a free quote
-                  </button>
+                <div className="relative z-10 flex flex-col flex-1">
+                  <div className="flex justify-between items-center p-8 pb-4">
+                    <span className="text-[12px] font-black text-primary uppercase tracking-wider">
+                      scandiweb Managed Service
+                    </span>
+                  </div>
+                  
+                  <div className="flex-1 px-8 py-4">
+                    <h4 className="text-3xl font-black tracking-tighter text-foreground leading-[1.05] mb-8">
+                      White-Glove Growth
+                    </h4>
+                    <div className="space-y-6">
+                      {[
+                        { label: "Strategy", value: "Expert Strategists & Marketing Executives" },
+                        { label: "Integration", value: "Deep CDP & Order Behavior Integration" },
+                        { label: "Security", value: "ISO 27001 & PCI DSS Certified" },
+                        { label: "Performance", value: "Proven 10x Conversion Evolution" }
+                      ].map((row) => (
+                        <div key={row.label} className="border-l-2 border-primary/20 pl-4">
+                          <p className="text-[11px] font-black text-primary/60 uppercase tracking-widest">{row.label}</p>
+                          <p className="mt-1 text-[15px] font-bold text-foreground">{row.value}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="mt-auto px-8 py-6 bg-primary/[0.03] border-t border-primary/10 flex items-center">
+                    <button className="h-10 px-6 rounded-full bg-black text-white text-[13px] font-bold ml-auto">
+                      Get a free quote
+                    </button>
+                  </div>
                 </div>
               </div>
 
