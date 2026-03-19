@@ -127,11 +127,7 @@ const FeatureGrid = () => {
                     </div>
                   </div>
 
-                  <div className="mt-auto px-8 py-6 bg-gray-50/50 border-t border-black/[0.03] flex items-center">
-                    <button className="h-10 px-6 rounded-full bg-black/5 text-black/40 text-[13px] font-bold ml-auto cursor-not-allowed">
-                      Basic Tier
-                    </button>
-                  </div>
+                  <div className="mt-auto px-8 py-6" />
                 </div>
               </motion.div>
 
@@ -218,11 +214,7 @@ const FeatureGrid = () => {
                   </div>
                 </div>
 
-                <div className="mt-auto px-8 py-6 bg-gray-50/50 border-t border-black/[0.03] flex items-center">
-                  <button className="h-10 px-6 rounded-full bg-black/5 text-black/40 text-[13px] font-bold ml-auto cursor-not-allowed">
-                    Basic Tier
-                  </button>
-                </div>
+                <div className="mt-auto px-8 py-6" />
               </div>
             </div>
           </div>
