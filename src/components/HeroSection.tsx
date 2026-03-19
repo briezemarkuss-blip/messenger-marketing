@@ -72,7 +72,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="relative overflow-hidden px-4 pt-10 sm:pt-20 lg:px-8 lg:pt-56 pb-16 sm:pb-20">
+    <section className="relative overflow-hidden px-4 pt-32 sm:pt-20 lg:px-8 lg:pt-56 pb-16 sm:pb-20">
       <div className="mx-auto max-w-6xl">
         <div className="text-center">
           {/* Desktop headlines */}
