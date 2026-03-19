@@ -57,7 +57,7 @@ const SocialProof = () => {
                     src={brand.logo}
                     alt={brand.name}
                     className={`max-h-8 sm:max-h-12 w-auto object-contain transition-transform duration-300 hover:scale-110 ${
-                    brand.name === "Walmart" ? "scale-[2.0]" : ""
+                    brand.name === "Walmart" ? "scale-[1.3]" : ""
                   } ${
                     brand.name === "Samsung" ? "scale-[1.1]" : ""
                   } ${
