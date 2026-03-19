@@ -9,6 +9,7 @@ const steps = [
     shortDesc: "Our Marketing Executives assess global data to identify growth-aligned infrastructure needs.",
     description: "Our Marketing Executives assess global data to identify growth-aligned infrastructure needs. We perform a deep dive into your existing customer touchpoints, analyzing performance metrics and identifying high-impact areas where AI-driven automation can drive significant conversion lifts.",
     tag: "Audit",
+    bgImage: "/bg-1.webp"
   },
   {
     id: "02",
@@ -16,6 +17,7 @@ const steps = [
     shortDesc: "Bespoke, empathetic customer flows designed with high-quality copy that resonates.",
     description: "Bespoke, empathetic customer flows designed with high-quality copy that resonates. Our strategic design team maps out every step of the customer journey, ensuring that each interaction feels personal, helpful, and perfectly aligned with your brand's unique voice and objectives.",
     tag: "Design",
+    bgImage: "/bg-2.webp"
   },
   {
     id: "03",
@@ -23,6 +25,7 @@ const steps = [
     shortDesc: "AI Engineers validate a 10x ROI on a specific data subset – refined and bulletproofed.",
     description: "AI Engineers validate a 10x ROI on a specific data subset – refined and bulletproofed. Before a full-scale rollout, we deploy a targeted pilot to verify our hypotheses. This phase allows us to fine-tune the AI's logic, ensuring a robust and high-performing system ready for scale.",
     tag: "Validation",
+    bgImage: "/bg-3.webp"
   },
   {
     id: "04",
@@ -30,6 +33,7 @@ const steps = [
     shortDesc: "End-to-end management across all regions and channels, ensuring consistent global performance.",
     description: "End-to-end management across all regions and channels, ensuring consistent global performance. Once validated, we scale your AI solution across all identified markets. Our team provides ongoing oversight and optimization, guaranteeing that your global presence remains strong and efficient.",
     tag: "Deployment",
+    bgImage: "/bg-4.webp"
   },
 ];
 
@@ -67,10 +71,17 @@ const OnboardingDemo = () => {
               <motion.div
                 key={step.id}
                 layout
-                className={`flex-shrink-0 w-[calc(100vw-3rem)] min-h-[440px] rounded-[2.5rem] bg-white border border-black/[0.05] shadow-[0_15px_40px_rgba(0,0,0,0.03)] overflow-hidden transition-colors duration-500 ${isExpanded ? 'z-20' : 'z-10'}`}
+                className={`flex-shrink-0 w-[calc(100vw-3rem)] min-h-[440px] rounded-[2.5rem] bg-white border border-black/[0.05] shadow-[0_15px_40px_rgba(0,0,0,0.03)] overflow-hidden transition-colors duration-500 relative ${isExpanded ? 'z-20' : 'z-10'}`}
                 onClick={() => setExpandedId(isExpanded ? null : step.id)}
               >
-                <div className="flex-1 px-8 relative flex flex-col pt-12 pb-8">
+                {/* Background Image with Overlay */}
+                <div 
+                  className="absolute inset-0 z-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                  style={{ backgroundImage: `url(${step.bgImage})` }}
+                />
+                <div className="absolute inset-0 z-0 bg-white/80" />
+
+                <div className="flex-1 px-8 relative z-10 flex flex-col pt-12 pb-8">
                   <div className="relative z-10 w-full">
                     <motion.h4 layout="position" className="text-3xl font-black tracking-tighter text-foreground leading-[1.05] mb-6">
                       {step.title}
@@ -124,7 +135,14 @@ const OnboardingDemo = () => {
               onClick={() => setExpandedId(isExpanded ? null : step.id)}
               className={`group relative flex flex-col min-h-[420px] rounded-[2.5rem] bg-white border border-black/[0.05] shadow-[0_15px_40px_rgba(0,0,0,0.03)] overflow-hidden cursor-pointer transition-colors duration-500 hover:border-black/15 ${isExpanded ? 'z-20' : 'z-10'}`}
             >
-              <div className="flex-1 px-8 relative flex flex-col pt-12">
+              {/* Background Image with Overlay */}
+              <div 
+                className="absolute inset-0 z-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                style={{ backgroundImage: `url(${step.bgImage})` }}
+              />
+              <div className="absolute inset-0 z-0 bg-white/85 transition-opacity duration-500 group-hover:bg-white/75" />
+
+              <div className="flex-1 px-8 relative z-10 flex flex-col pt-12">
                 <div className="relative z-10 w-full">
                   <motion.h4 layout="position" className="text-3xl font-black tracking-tighter text-foreground leading-[1.05] mb-6 flex items-start gap-3">
                     <span className="flex-1">{step.title}</span>
