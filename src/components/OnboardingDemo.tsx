@@ -53,11 +53,11 @@ const OnboardingDemo = () => {
       <div className="md:hidden">
         {/* Mobile Swipe Container */}
         <motion.div 
-          className="flex gap-6 px-4 cursor-grab active:cursor-grabbing"
+          className="flex gap-4 px-6 cursor-grab active:cursor-grabbing"
           drag="x"
           dragConstraints={{ left: 0, right: 0 }}
           onDragEnd={onDragEnd}
-          animate={{ x: `calc(-${activeIndex * 100}% - ${activeIndex * 1.5}rem)` }}
+          animate={{ x: `calc(-${activeIndex * 100}% - ${activeIndex * 1rem})` }}
           transition={{ type: "spring", damping: 30, stiffness: 200 }}
         >
           {steps.map((step, idx) => {
@@ -66,7 +66,7 @@ const OnboardingDemo = () => {
               <motion.div
                 key={step.id}
                 layout
-                className={`flex-shrink-0 w-full min-h-[420px] rounded-[2.5rem] bg-white border border-black/[0.05] shadow-[0_15px_40px_rgba(0,0,0,0.03)] overflow-hidden transition-colors duration-500 ${isExpanded ? 'z-20' : 'z-10'}`}
+                className={`flex-shrink-0 w-[calc(100vw-3rem)] min-h-[440px] rounded-[2.5rem] bg-white border border-black/[0.05] shadow-[0_15px_40px_rgba(0,0,0,0.03)] overflow-hidden transition-colors duration-500 ${isExpanded ? 'z-20' : 'z-10'}`}
                 onClick={() => setExpandedId(isExpanded ? null : step.id)}
               >
                 <div className="flex-1 px-8 relative flex flex-col pt-12 pb-8">
