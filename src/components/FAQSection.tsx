@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import QuoteDialog from "./QuoteDialog";
 import {
   Accordion,
   AccordionContent,
@@ -67,9 +68,11 @@ const FAQSection = () => {
           viewport={{ once: true, margin: "-40px" }}
           transition={{ duration: 0.5, delay: 0.1 }}
         >
-          <Button size="lg" className="rounded-full px-7 text-[15px] font-semibold shadow-sm bg-foreground text-background hover:bg-foreground/90 transition-all duration-200">
-            Get a free quote
-          </Button>
+          <QuoteDialog>
+            <Button size="lg" className="rounded-full px-7 text-[15px] font-semibold shadow-sm bg-foreground text-background hover:bg-foreground/90 transition-all duration-200">
+              Get a free quote
+            </Button>
+          </QuoteDialog>
         </motion.div>
       </div>
     </section>

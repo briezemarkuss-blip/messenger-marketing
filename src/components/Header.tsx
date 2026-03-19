@@ -5,6 +5,7 @@ import {
   SheetContent,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import QuoteDialog from "./QuoteDialog";
 
 const NAV_LINKS = [
   { name: "Features", href: "#features" },
@@ -37,9 +38,11 @@ const Header = () => {
           </div>
 
           <div className="flex items-center gap-3">
-            <Button variant="outline" size="sm" className="hidden sm:flex rounded-full px-5 text-xs font-semibold" asChild>
-              <a href="#hero">Get a free quote</a>
-            </Button>
+            <QuoteDialog>
+              <Button variant="outline" size="sm" className="hidden sm:flex rounded-full px-5 text-xs font-semibold">
+                Get a free quote
+              </Button>
+            </QuoteDialog>
 
             {/* Mobile Navigation */}
             <div className="md:hidden">
@@ -62,9 +65,11 @@ const Header = () => {
                       </a>
                     ))}
                     <hr className="border-border" />
-                    <Button className="w-full rounded-full mt-4" asChild>
-                      <a href="#hero">Get a free quote</a>
-                    </Button>
+                    <QuoteDialog>
+                      <Button className="w-full rounded-full mt-4">
+                        Get a free quote
+                      </Button>
+                    </QuoteDialog>
                   </nav>
                 </SheetContent>
               </Sheet>

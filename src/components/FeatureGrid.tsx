@@ -1,6 +1,7 @@
 import { motion, useAnimation } from "framer-motion";
 import { useState, useEffect } from "react";
 import OnboardingDemo from "./OnboardingDemo";
+import QuoteDialog from "./QuoteDialog";
 
 const FeatureGrid = () => {
   const [activeCompareIndex, setActiveCompareIndex] = useState(0);
@@ -106,9 +107,11 @@ const FeatureGrid = () => {
                         </div>
 
                         <div className="mt-auto px-8 py-6 bg-primary/[0.03] border-t border-primary/10 flex items-center">
-                          <button className="h-10 px-6 rounded-full bg-black text-white text-[13px] font-bold ml-auto">
-                            Get a free quote
-                          </button>
+                          <QuoteDialog>
+                            <button className="h-10 px-6 rounded-full bg-black text-white text-[13px] font-bold ml-auto">
+                              Get a free quote
+                            </button>
+                          </QuoteDialog>
                         </div>
                       </div>
                     </div>
@@ -195,9 +198,11 @@ const FeatureGrid = () => {
                     </div>
 
                     <div className="mt-auto px-8 py-6 bg-primary/[0.03] border-t border-primary/10 flex items-center">
-                      <button className="h-10 px-6 rounded-full bg-black text-white text-[13px] font-bold ml-auto">
-                        Get a free quote
-                      </button>
+                      <QuoteDialog>
+                        <button className="h-10 px-6 rounded-full bg-black text-white text-[13px] font-bold ml-auto">
+                          Get a free quote
+                        </button>
+                      </QuoteDialog>
                     </div>
                   </div>
                 </div>

@@ -5,6 +5,7 @@ import { Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import HeroChatCarousel from "@/components/HeroChatCarousel";
 import { Separator } from "@/components/ui/separator";
+import QuoteDialog from "./QuoteDialog";
 
 const wordAnim = (i: number) => ({
   initial: { opacity: 0, y: 8 },
@@ -181,9 +182,11 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 2.5, ease: [0.42, 0, 0.58, 1] }}
           >
-            <Button size="lg" className="rounded-full px-7 text-[15px] font-semibold shadow-sm bg-foreground text-background hover:bg-foreground/90 hover:scale-105 transition-all duration-200">
-              Get a free quote
-            </Button>
+            <QuoteDialog>
+              <Button size="lg" className="rounded-full px-7 text-[15px] font-semibold shadow-sm bg-foreground text-background hover:bg-foreground/90 hover:scale-105 transition-all duration-200">
+                Get a free quote
+              </Button>
+            </QuoteDialog>
           </motion.div>
 
           <div className="flex justify-center pt-16 pb-24 sm:pt-24 sm:pb-32">
