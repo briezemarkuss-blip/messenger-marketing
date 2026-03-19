@@ -19,7 +19,7 @@ const ClientTestimony = () => {
     
     let newIndex = activeIndex;
     if (info.offset.x < -swipeThreshold || info.velocity.x < -velocityThreshold) {
-      if (activeIndex < 2) newIndex = activeIndex + 1;
+      if (activeIndex < 1) newIndex = activeIndex + 1;
     } else if (info.offset.x > swipeThreshold || info.velocity.x > velocityThreshold) {
       if (activeIndex > 0) newIndex = activeIndex - 1;
     }
@@ -75,11 +75,12 @@ const ClientTestimony = () => {
             </div>
 
             {/* Card 2: Conversion Lift */}
-            <div 
-              className="flex-shrink-0 w-[85vw] min-h-[400px] rounded-[2.5rem] border border-black/[0.05] shadow-[0_15px_40px_rgba(0,0,0,0.03)] p-10 flex flex-col justify-center text-center relative overflow-hidden"
-              style={{ backgroundImage: "url('/blue-texture.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }}
-            >
-              <div className="absolute inset-0 bg-white/40" />
+            <div className="flex-shrink-0 w-[85vw] min-h-[400px] rounded-[2.5rem] border border-black/[0.05] shadow-[0_15px_40px_rgba(0,0,0,0.03)] p-10 flex flex-col justify-center text-center relative overflow-hidden bg-white/50">
+              <div 
+                className="absolute inset-0 z-0 opacity-50 bg-cover bg-center"
+                style={{ backgroundImage: "url('/blue-texture.jpg')" }}
+              />
+              <div className="absolute inset-0 z-0 bg-white/10 backdrop-blur-sm" />
               <div className="relative z-10">
                 <span className="text-[11px] font-black text-primary uppercase tracking-[0.2em] mb-4 block">Conversion lift</span>
                 <div className="text-7xl font-black tracking-tighter text-primary mb-2">+127%</div>
@@ -91,34 +92,12 @@ const ClientTestimony = () => {
                 </div>
               </div>
             </div>
-
-            {/* Card 3: Global Reach */}
-            <div className="flex-shrink-0 w-[85vw] min-h-[400px] bg-white rounded-[2.5rem] border border-black/[0.05] shadow-[0_15px_40px_rgba(0,0,0,0.03)] p-10 flex flex-col justify-center">
-              <div className="space-y-6">
-                <div className="flex items-baseline gap-2">
-                  <span className="text-4xl font-black tracking-tighter text-foreground">600+</span>
-                  <span className="text-xs font-bold text-muted-foreground/60 uppercase tracking-widest">Global brands</span>
-                </div>
-                <div className="h-px w-full bg-black/[0.03]" />
-                <div className="flex items-baseline gap-2">
-                  <span className="text-4xl font-black tracking-tighter text-foreground">20+</span>
-                  <span className="text-xs font-bold text-muted-foreground/60 uppercase tracking-widest">Years Expertise</span>
-                </div>
-                <div className="h-px w-full bg-black/[0.03]" />
-                <div className="pt-4">
-                  <button className="w-full h-12 rounded-full bg-black text-white text-[13px] font-black tracking-tight flex items-center justify-center gap-2 group transition-all hover:bg-black/80">
-                    See Case Studies
-                    <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                  </button>
-                </div>
-              </div>
-            </div>
           </motion.div>
         </div>
 
         {/* Mobile View Dot Indicator */}
         <div className="md:hidden mt-4 flex justify-center gap-2">
-          {[0, 1, 2].map((idx) => (
+          {[0, 1].map((idx) => (
             <button
               key={idx}
               className={`h-1.5 rounded-full transition-all duration-300 ${activeIndex === idx ? 'w-8 bg-black' : 'w-1.5 bg-black/10'}`}
@@ -151,41 +130,19 @@ const ClientTestimony = () => {
 
           <div className="w-[340px] shrink-0 space-y-6">
             <div 
-              className="rounded-[3rem] p-10 border border-black/[0.05] transition-all hover:scale-[1.02] relative overflow-hidden h-[240px] flex flex-col justify-center"
-              style={{ backgroundImage: "url('/blue-texture.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }}
+              className="rounded-[3rem] p-10 border border-black/[0.05] transition-all hover:scale-[1.02] relative overflow-hidden h-[240px] flex flex-col justify-center bg-white/50"
             >
-              <div className="absolute inset-0 bg-white/40" />
+              <div 
+                className="absolute inset-0 z-0 opacity-50 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                style={{ backgroundImage: "url('/blue-texture.jpg')" }}
+              />
+              <div className="absolute inset-0 z-0 bg-white/10 backdrop-blur-sm" />
               <div className="relative z-10">
                 <span className="text-[11px] font-black text-primary uppercase tracking-[0.2em] mb-4 block">Conversion lift</span>
                 <div className="text-6xl font-black tracking-tighter text-primary">+127%</div>
                 <p className="mt-4 text-foreground/80 font-medium leading-relaxed text-sm">
                   Average order recovery rate increased from 12% to over 27% within 30 days.
                 </p>
-              </div>
-            </div>
-
-            <div className="bg-white rounded-[3rem] p-10 border border-black/[0.05] shadow-[0_15px_40px_rgba(0,0,0,0.03)] space-y-8">
-              <div className="space-y-2">
-                <div className="flex items-baseline gap-2">
-                  <span className="text-4xl font-black tracking-tighter text-foreground">600+</span>
-                  <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest">Global brands</span>
-                </div>
-                <div className="h-px w-full bg-black/[0.03]" />
-              </div>
-
-              <div className="space-y-2">
-                <div className="flex items-baseline gap-2">
-                  <span className="text-4xl font-black tracking-tighter text-foreground">20+</span>
-                  <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest">Years Expertise</span>
-                </div>
-                <div className="h-px w-full bg-black/[0.03]" />
-              </div>
-
-              <div className="pt-2">
-                <button className="group flex items-center gap-2 text-[13px] font-black uppercase tracking-widest text-foreground hover:text-primary transition-colors">
-                  Full Case Study
-                  <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </button>
               </div>
             </div>
           </div>

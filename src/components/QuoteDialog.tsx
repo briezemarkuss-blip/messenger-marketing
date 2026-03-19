@@ -69,7 +69,7 @@ const QuoteDialog = ({ children }: QuoteDialogProps) => {
       <DialogTrigger asChild>{children}</DialogTrigger>
       <DialogContent 
         onOpenAutoFocus={(e) => e.preventDefault()}
-        className="sm:max-w-[500px] rounded-[2rem] bg-zinc-950 border-white/5 shadow-[0_0_50px_-12px_rgba(0,0,0,0.5)] overflow-hidden text-white p-0 p-8 sm:p-10"
+        className="w-[92vw] sm:max-w-[500px] rounded-[2rem] bg-zinc-950 border-white/5 shadow-[0_0_50px_-12px_rgba(0,0,0,0.5)] overflow-hidden text-white p-0 p-8 sm:p-10"
       >
         <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent pointer-events-none" />
         

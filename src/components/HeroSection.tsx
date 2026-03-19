@@ -74,7 +74,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="relative overflow-hidden px-4 pt-24 sm:pt-20 lg:px-8 lg:pt-56 pb-16 sm:pb-20">
+    <section className="relative overflow-hidden px-4 pt-32 sm:pt-20 lg:px-8 lg:pt-56 pb-16 sm:pb-20">
       <div className="mx-auto max-w-6xl">
         <div className="text-center">
           {/* Desktop headlines */}
@@ -112,7 +112,7 @@ const HeroSection = () => {
 
           {/* Mobile headlines — bold typographic poster */}
           <div className="sm:hidden" style={{ letterSpacing: "-0.05em" }}>
-            <h1 className="text-5xl font-black text-foreground leading-[0.9]">
+            <h1 className="text-4xl font-black text-foreground leading-[0.9]">
               {[
                 { text: "Stop Being", highlight: false, idx: 0 },
                 { text: "Ignored in", highlight: false, idx: 1 },
@@ -139,7 +139,7 @@ const HeroSection = () => {
 
           {/* Subtext — "Context" */}
           <motion.div
-            className="mx-auto pt-10 sm:pt-14 max-w-3xl text-center text-lg text-muted-foreground sm:text-xl"
+            className="mx-auto pt-24 sm:pt-14 max-w-3xl text-center text-lg text-muted-foreground sm:text-xl"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 2.5, ease: [0.42, 0, 0.58, 1] }}
