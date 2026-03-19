@@ -30,6 +30,7 @@ const steps = [
     shortDesc: "End-to-end management across all regions and channels, ensuring consistent global performance.",
     description: "End-to-end management across all regions and channels, ensuring consistent global performance. Once validated, we scale your AI solution across all identified markets. Our team provides ongoing oversight and optimization, guaranteeing that your global presence remains strong and efficient.",
     tag: "Deployment",
+    bgImage: "/iridescent 2.jpg"
   },
 ];
 
@@ -67,9 +68,18 @@ const OnboardingDemo = () => {
               <motion.div
                 key={step.id}
                 layout
-                className={`flex-shrink-0 w-[calc(100vw-3rem)] min-h-[440px] rounded-[2.5rem] bg-white border border-black/[0.05] shadow-[0_15px_40px_rgba(0,0,0,0.03)] overflow-hidden transition-colors duration-500 ${isExpanded ? 'z-20' : 'z-10'}`}
+                className={`flex-shrink-0 w-[calc(100vw-3rem)] min-h-[440px] rounded-[2.5rem] bg-white border border-black/[0.05] shadow-[0_15px_40px_rgba(0,0,0,0.03)] overflow-hidden transition-colors duration-500 ${isExpanded ? 'z-20' : 'z-10'} relative group cursor-pointer`}
                 onClick={() => setExpandedId(isExpanded ? null : step.id)}
               >
+                {step.id === "04" && (
+                  <>
+                    <div 
+                      className="absolute inset-0 z-0 bg-cover bg-center transition-transform duration-700"
+                      style={{ backgroundImage: `url("${encodeURI((step as any).bgImage)}")` }}
+                    />
+                    <div className="absolute inset-0 z-0 bg-white/40" />
+                  </>
+                )}
                 <div className="flex-1 px-8 relative flex flex-col pt-12 pb-8">
                   <div className="relative z-10 w-full">
                     <motion.h4 layout="position" className="text-3xl font-black tracking-tighter text-foreground leading-[1.05] mb-6">
@@ -86,9 +96,9 @@ const OnboardingDemo = () => {
                         {isExpanded ? step.description : step.shortDesc}
                       </p>
                     </motion.div>
-                    <motion.div 
-                      layout="position" 
-                      animate={{ rotate: isExpanded ? 180 : 0 }} 
+                    <motion.div
+                      layout="position"
+                      animate={{ rotate: isExpanded ? 180 : 0 }}
                       transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
                       className="mt-4"
                     >
@@ -130,6 +140,15 @@ const OnboardingDemo = () => {
               onClick={() => setExpandedId(isExpanded ? null : step.id)}
               className={`group relative flex flex-col min-h-[420px] rounded-[2.5rem] bg-white border border-black/[0.05] shadow-[0_15px_40px_rgba(0,0,0,0.03)] overflow-hidden cursor-pointer transition-colors duration-500 hover:border-black/15 ${isExpanded ? 'z-20' : 'z-10'}`}
             >
+              {step.id === "04" && (
+                <>
+                  <div 
+                    className="absolute inset-0 z-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                    style={{ backgroundImage: `url("${encodeURI((step as any).bgImage)}")` }}
+                  />
+                  <div className="absolute inset-0 z-0 bg-white/40 transition-opacity duration-500 group-hover:bg-white/30" />
+                </>
+              )}
               <div className="flex-1 px-8 relative flex flex-col pt-12">
                 <div className="relative z-10 w-full">
                   <motion.h4 layout="position" className="text-3xl font-black tracking-tighter text-foreground leading-[1.05] mb-6 flex items-start gap-3">
@@ -146,9 +165,9 @@ const OnboardingDemo = () => {
                       {isExpanded ? step.description : step.shortDesc}
                     </p>
                   </motion.div>
-                  <motion.div 
-                    layout="position" 
-                    animate={{ rotate: isExpanded ? 180 : 0 }} 
+                  <motion.div
+                    layout="position"
+                    animate={{ rotate: isExpanded ? 180 : 0 }}
                     transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
                     className="mt-3 flex justify-start"
                   >
