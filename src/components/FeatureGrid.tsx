@@ -58,40 +58,6 @@ const FeatureGrid = () => {
                 animate={{ x: `calc(-${activeCompareIndex} * (100vw - 1.5rem))` }}
                 transition={{ type: "spring", damping: 25, stiffness: 120 }}
               >
-                {/* Standard AI Software */}
-                <div className="flex-shrink-0 w-[calc(100vw-3rem)] relative flex flex-col min-h-[460px] rounded-[2.5rem] bg-white border border-black/[0.05] shadow-[0_15px_40px_rgba(0,0,0,0.03)] overflow-hidden">
-                  <div className="flex justify-between items-center p-8 pb-4">
-                    <span className="text-[12px] font-black text-foreground/40 uppercase tracking-wider">
-                      Standard AI Software
-                    </span>
-                  </div>
-                  
-                  <div className="flex-1 px-8 py-4">
-                    <h4 className="text-3xl font-black tracking-tighter text-foreground leading-[1.05] mb-8">
-                      Generic Automation
-                    </h4>
-                    <div className="space-y-6">
-                      {[
-                        { label: "Strategy", value: "User-built logic trees" },
-                        { label: "Integration", value: "Basic API" },
-                        { label: "Security", value: "Standard SaaS" },
-                        { label: "Performance", value: "General automation" }
-                      ].map((row) => (
-                        <div key={row.label} className="border-l-2 border-black/[0.03] pl-4">
-                          <p className="text-[11px] font-black text-foreground/40 uppercase tracking-widest">{row.label}</p>
-                          <p className="mt-1 text-[15px] font-medium text-foreground/70">{row.value}</p>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="mt-auto px-8 py-6 bg-gray-50/50 border-t border-black/[0.03] flex items-center">
-                    <button className="h-10 px-6 rounded-full bg-black/5 text-black/40 text-[13px] font-bold ml-auto cursor-not-allowed">
-                      Basic Tier
-                    </button>
-                  </div>
-                </div>
-
                 {/* Scandiweb Managed Service */}
                 <div className="flex-shrink-0 w-[calc(100vw-3rem)] relative flex flex-col min-h-[460px] rounded-[2.5rem] bg-white border border-primary/20 shadow-[0_20px_50px_rgba(var(--primary-rgb),0.05)] overflow-hidden ring-1 ring-primary/10">
                   <div className="flex justify-between items-center p-8 pb-4">
@@ -125,6 +91,40 @@ const FeatureGrid = () => {
                     </button>
                   </div>
                 </div>
+
+                {/* Standard AI Software */}
+                <div className="flex-shrink-0 w-[calc(100vw-3rem)] relative flex flex-col min-h-[460px] rounded-[2.5rem] bg-white border border-black/[0.05] shadow-[0_15px_40px_rgba(0,0,0,0.03)] overflow-hidden">
+                  <div className="flex justify-between items-center p-8 pb-4">
+                    <span className="text-[12px] font-black text-foreground/40 uppercase tracking-wider">
+                      Standard AI Software
+                    </span>
+                  </div>
+                  
+                  <div className="flex-1 px-8 py-4">
+                    <h4 className="text-3xl font-black tracking-tighter text-foreground leading-[1.05] mb-8">
+                      Generic Automation
+                    </h4>
+                    <div className="space-y-6">
+                      {[
+                        { label: "Strategy", value: "User-built logic trees" },
+                        { label: "Integration", value: "Basic API" },
+                        { label: "Security", value: "Standard SaaS" },
+                        { label: "Performance", value: "General automation" }
+                      ].map((row) => (
+                        <div key={row.label} className="border-l-2 border-black/[0.03] pl-4">
+                          <p className="text-[11px] font-black text-foreground/40 uppercase tracking-widest">{row.label}</p>
+                          <p className="mt-1 text-[15px] font-medium text-foreground/70">{row.value}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="mt-auto px-8 py-6 bg-gray-50/50 border-t border-black/[0.03] flex items-center">
+                    <button className="h-10 px-6 rounded-full bg-black/5 text-black/40 text-[13px] font-bold ml-auto cursor-not-allowed">
+                      Basic Tier
+                    </button>
+                  </div>
+                </div>
               </motion.div>
 
               {/* Minimal Step Indicator */}
@@ -141,40 +141,6 @@ const FeatureGrid = () => {
 
             {/* Desktop Grid Layout */}
             <div className="hidden md:grid md:grid-cols-2 gap-8">
-              {/* Standard AI Software */}
-              <div className="relative flex flex-col min-h-[460px] rounded-[2.5rem] bg-white border border-black/[0.05] shadow-[0_15px_40px_rgba(0,0,0,0.03)] overflow-hidden">
-                <div className="flex justify-between items-center p-8 pb-4">
-                  <span className="text-[12px] font-black text-foreground/40 uppercase tracking-wider">
-                    Standard AI Software
-                  </span>
-                </div>
-                
-                <div className="flex-1 px-8 py-4">
-                  <h4 className="text-3xl font-black tracking-tighter text-foreground leading-[1.05] mb-8">
-                    Generic Automation
-                  </h4>
-                  <div className="space-y-6">
-                    {[
-                      { label: "Strategy", value: "User-built logic trees" },
-                      { label: "Integration", value: "Basic API" },
-                      { label: "Security", value: "Standard SaaS" },
-                      { label: "Performance", value: "General automation" }
-                    ].map((row) => (
-                      <div key={row.label} className="border-l-2 border-black/[0.03] pl-4">
-                        <p className="text-[11px] font-black text-foreground/40 uppercase tracking-widest">{row.label}</p>
-                        <p className="mt-1 text-[15px] font-medium text-foreground/70">{row.value}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="mt-auto px-8 py-6 bg-gray-50/50 border-t border-black/[0.03] flex items-center">
-                  <button className="h-10 px-6 rounded-full bg-black/5 text-black/40 text-[13px] font-bold ml-auto cursor-not-allowed">
-                    Basic Tier
-                  </button>
-                </div>
-              </div>
-
               {/* Scandiweb Managed Service */}
               <div className="relative flex flex-col min-h-[460px] rounded-[2.5rem] bg-white border border-primary/20 shadow-[0_20px_50px_rgba(var(--primary-rgb),0.05)] overflow-hidden ring-1 ring-primary/10 transition-all duration-500 hover:border-primary/40">
                 <div className="flex justify-between items-center p-8 pb-4">
@@ -205,6 +171,40 @@ const FeatureGrid = () => {
                 <div className="mt-auto px-8 py-6 bg-primary/[0.03] border-t border-primary/10 flex items-center">
                   <button className="h-10 px-6 rounded-full bg-black text-white text-[13px] font-bold ml-auto">
                     Get a free quote
+                  </button>
+                </div>
+              </div>
+
+              {/* Standard AI Software */}
+              <div className="relative flex flex-col min-h-[460px] rounded-[2.5rem] bg-white border border-black/[0.05] shadow-[0_15px_40px_rgba(0,0,0,0.03)] overflow-hidden">
+                <div className="flex justify-between items-center p-8 pb-4">
+                  <span className="text-[12px] font-black text-foreground/40 uppercase tracking-wider">
+                    Standard AI Software
+                  </span>
+                </div>
+                
+                <div className="flex-1 px-8 py-4">
+                  <h4 className="text-3xl font-black tracking-tighter text-foreground leading-[1.05] mb-8">
+                    Generic Automation
+                  </h4>
+                  <div className="space-y-6">
+                    {[
+                      { label: "Strategy", value: "User-built logic trees" },
+                      { label: "Integration", value: "Basic API" },
+                      { label: "Security", value: "Standard SaaS" },
+                      { label: "Performance", value: "General automation" }
+                    ].map((row) => (
+                      <div key={row.label} className="border-l-2 border-black/[0.03] pl-4">
+                        <p className="text-[11px] font-black text-foreground/40 uppercase tracking-widest">{row.label}</p>
+                        <p className="mt-1 text-[15px] font-medium text-foreground/70">{row.value}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="mt-auto px-8 py-6 bg-gray-50/50 border-t border-black/[0.03] flex items-center">
+                  <button className="h-10 px-6 rounded-full bg-black/5 text-black/40 text-[13px] font-bold ml-auto cursor-not-allowed">
+                    Basic Tier
                   </button>
                 </div>
               </div>
