@@ -184,7 +184,7 @@ const HeroSection = () => {
           </motion.div>
 
           {/* Spacer to bring carousel closer to hero content */}
-          <div className="h-[120px] sm:h-[220px]" aria-hidden="true" />
+          <div className="h-[200px] sm:h-[320px]" aria-hidden="true" />
 
           {/* Chat Carousel — "Proof" */}
           <div>

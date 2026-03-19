@@ -57,7 +57,7 @@ const OnboardingDemo = () => {
           drag="x"
           dragConstraints={{ left: 0, right: 0 }}
           onDragEnd={onDragEnd}
-          animate={{ x: `calc(-${activeIndex * 100}% - ${activeIndex * 1rem})` }}
+          animate={{ x: `calc(-${activeIndex * 100}% - ${activeIndex * 1}rem)` }}
           transition={{ type: "spring", damping: 30, stiffness: 200 }}
         >
           {steps.map((step, idx) => {
