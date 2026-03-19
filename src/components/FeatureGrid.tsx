@@ -85,7 +85,7 @@ const FeatureGrid = () => {
                           { label: "Performance", value: "Proven 10x Conversion Evolution" }
                         ].map((row) => (
                           <div key={row.label} className="">
-                            <p className="text-[11px] font-black text-primary/60 uppercase tracking-widest">{row.label}</p>
+                            <p className="text-[13px] font-black text-primary/60 uppercase tracking-widest">{row.label}</p>
                             <p className="mt-1 text-[15px] font-bold text-foreground">{row.value}</p>
                           </div>
                         ))}
@@ -120,7 +120,7 @@ const FeatureGrid = () => {
                         { label: "Performance", value: "General automation" }
                       ].map((row) => (
                         <div key={row.label} className="">
-                          <p className="text-[11px] font-black text-foreground/40 uppercase tracking-widest">{row.label}</p>
+                          <p className="text-[13px] font-black text-foreground/40 uppercase tracking-widest">{row.label}</p>
                           <p className="mt-1 text-[15px] font-medium text-foreground/70">{row.value}</p>
                         </div>
                       ))}
@@ -176,7 +176,7 @@ const FeatureGrid = () => {
                         { label: "Performance", value: "Proven 10x Conversion Evolution" }
                       ].map((row) => (
                         <div key={row.label} className="">
-                          <p className="text-[11px] font-black text-primary/60 uppercase tracking-widest">{row.label}</p>
+                          <p className="text-[13px] font-black text-primary/60 uppercase tracking-widest">{row.label}</p>
                           <p className="mt-1 text-[15px] font-bold text-foreground">{row.value}</p>
                         </div>
                       ))}
@@ -211,7 +211,7 @@ const FeatureGrid = () => {
                       { label: "Performance", value: "General automation" }
                     ].map((row) => (
                       <div key={row.label} className="">
-                        <p className="text-[11px] font-black text-foreground/40 uppercase tracking-widest">{row.label}</p>
+                        <p className="text-[13px] font-black text-foreground/40 uppercase tracking-widest">{row.label}</p>
                         <p className="mt-1 text-[15px] font-medium text-foreground/70">{row.value}</p>
                       </div>
                     ))}
