@@ -91,14 +91,16 @@ const OnboardingDemo = () => {
                   className={`flex-shrink-0 w-[85vw] min-h-[440px] rounded-[2.5rem] bg-white border border-black/[0.05] shadow-[0_15px_40px_rgba(0,0,0,0.03)] overflow-hidden transition-colors duration-500 ${isExpanded ? 'z-20' : 'z-10'} relative group cursor-pointer`}
                   onClick={() => setExpandedId(isExpanded ? null : step.id)}
                 >
+                  {/* Background Layers */}
+                  <div className={`absolute inset-0 z-0 transition-colors duration-700 ${
+                    step.id === "04" ? "bg-blue-600/12" : "bg-blue-600/[0.05]"
+                  }`} />
+                  
                   {step.id === "04" && (
-                    <>
-                      <div 
-                        className="absolute inset-0 z-0 bg-cover bg-center transition-transform duration-700"
-                        style={{ backgroundImage: `url("${encodeURI((step as any).bgImage)}")` }}
-                      />
-                      <div className="absolute inset-0 z-0 bg-white/40" />
-                    </>
+                    <div 
+                      className="absolute inset-0 z-0 bg-cover bg-center transition-transform duration-700 opacity-60"
+                      style={{ backgroundImage: `url("${encodeURI((step as any).bgImage)}")` }}
+                    />
                   )}
                   <div className="relative z-10 flex flex-col flex-1 h-full">
                     <div className="flex-1 px-8 pt-12 pb-8 flex flex-col">
@@ -128,7 +130,7 @@ const OnboardingDemo = () => {
                     </div>
                     <div className="mt-auto px-8 py-6 bg-gray-50/50 border-t border-black/[0.03] flex items-center justify-end">
                       <span className="text-[18px] font-black uppercase tracking-tight text-foreground mr-3 text-right">STEP</span>
-                      <div className="w-9 h-9 rounded-full bg-black text-white text-lg font-black flex items-center justify-center">
+                      <div className="w-9 h-9 rounded-full bg-zinc-900 text-white text-lg font-black flex items-center justify-center">
                         {parseInt(step.id)}
                       </div>
                     </div>
@@ -162,14 +164,16 @@ const OnboardingDemo = () => {
               onClick={() => setExpandedId(isExpanded ? null : step.id)}
               className={`group relative flex flex-col min-h-[420px] rounded-[2.5rem] bg-white border border-black/[0.05] shadow-[0_15px_40px_rgba(0,0,0,0.03)] overflow-hidden cursor-pointer transition-colors duration-500 hover:border-black/15 ${isExpanded ? 'z-20' : 'z-10'}`}
             >
+              {/* Background Layers */}
+              <div className={`absolute inset-0 z-0 transition-colors duration-700 ${
+                step.id === "04" ? "bg-blue-600/12" : "bg-blue-600/[0.05]"
+              }`} />
+
               {step.id === "04" && (
-                <>
-                  <div 
-                    className="absolute inset-0 z-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-                    style={{ backgroundImage: `url("${encodeURI((step as any).bgImage)}")` }}
-                  />
-                  <div className="absolute inset-0 z-0 bg-white/40 transition-opacity duration-500 group-hover:bg-white/30" />
-                </>
+                <div 
+                  className="absolute inset-0 z-0 bg-cover bg-center transition-transform duration-700 opacity-60 group-hover:scale-105"
+                  style={{ backgroundImage: `url("${encodeURI((step as any).bgImage)}")` }}
+                />
               )}
               <div className="relative z-10 flex flex-col flex-1 h-full">
                 <div className="flex-1 px-8 pt-12 flex flex-col">
@@ -199,7 +203,7 @@ const OnboardingDemo = () => {
                 </div>
                 <div className="mt-auto px-8 py-6 bg-gray-50/50 border-t border-black/[0.03] flex items-center justify-end">
                   <span className="text-[18px] font-black uppercase tracking-tight text-foreground mr-3 text-right">STEP</span>
-                  <button className="w-9 h-9 rounded-full bg-black text-white text-lg font-black flex items-center justify-center transition-all hover:bg-black/80">
+                  <button className="w-9 h-9 rounded-full bg-zinc-900 text-white text-lg font-black flex items-center justify-center transition-all hover:bg-zinc-800">
                     {parseInt(step.id)}
                   </button>
                 </div>

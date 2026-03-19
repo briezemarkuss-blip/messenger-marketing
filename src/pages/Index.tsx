@@ -5,6 +5,7 @@ import SocialProof from "@/components/SocialProof";
 import FeatureGrid from "@/components/FeatureGrid";
 import AboutScandiweb from "@/components/AboutScandiweb";
 import FAQSection from "@/components/FAQSection";
+import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
@@ -37,6 +38,7 @@ const Index = () => {
           </section>
         </div>
       </main>
+      <Footer />
     </div>
   );
 };

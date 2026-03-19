@@ -124,12 +124,11 @@ const HeroSection = () => {
               ))}
             </h1>
 
-            <h1 className="text-5xl font-black text-foreground leading-[0.9] mt-8">
+            <h1 className="text-4xl font-black text-foreground leading-[0.9] mt-8">
               {[
                 { text: "Get 90%", highlight: true, idx: 3 },
                 { text: "Open Rates", highlight: true, idx: 4 },
-                { text: "via", highlight: true, idx: 5 },
-                { text: "Messenger.", highlight: true, idx: 6 },
+                { text: "via Messenger.", highlight: true, idx: 5 },
               ].map(({ text, highlight, idx }) => (
                 <motion.span key={idx} className={`block ${highlight ? "text-primary" : ""}`} {...wordAnim(idx)}>
                   {text}

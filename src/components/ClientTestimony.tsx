@@ -38,12 +38,12 @@ const ClientTestimony = () => {
   return (
     <section className="px-4 py-24 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-4xl space-y-4">
-        {/* Mobile View Header */}
-        <div className="md:hidden text-center space-y-4 mb-12">
-          <h3 className="text-3xl font-black tracking-tighter text-foreground leading-[1.1]">
-            Real <span className="text-primary">Impact.</span>
+        {/* Section Header */}
+        <div className="text-center mb-12 sm:mb-20">
+          <h3 className="text-2xl sm:text-4xl font-black tracking-tighter text-foreground">
+            Real <span className="text-primary italic">Impact.</span>
           </h3>
-          <p className="text-muted-foreground/80 font-medium leading-relaxed">
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground/80 font-medium text-center mx-auto">
             See how our managed AI service transformed results for local and global retail leaders.
           </p>
         </div>

@@ -30,7 +30,7 @@ const SocialProof = () => {
             </p>
           </motion.div>
           
-          <div className="relative flex overflow-hidden scrollbar-hide py-4 grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-500">
+          <div className="relative flex overflow-hidden scrollbar-hide py-4 opacity-80 hover:opacity-100 transition-all duration-500">
             <div className="flex w-max animate-marquee whitespace-nowrap items-center py-2">
               {[...brands, ...brands].map((brand, i) => (
                 <div 

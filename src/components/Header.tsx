@@ -20,10 +20,7 @@ const Header = () => {
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6">
           <div className="flex items-center gap-8">
             <a href="/" className="flex items-center hover:opacity-90 transition-opacity group">
-              <span className="text-[18px] font-black tracking-tight text-foreground lowercase">
-                messenger
-              </span>
-              <div className="relative flex items-center justify-center ml-1.5 transition-transform group-hover:scale-110">
+              <div className="relative flex items-center justify-center mr-1.5 transition-transform group-hover:scale-110">
                 <svg 
                   viewBox="0 0 24 24" 
                   className="w-9 h-9 text-primary"
@@ -39,6 +36,9 @@ const Header = () => {
                   AI
                 </span>
               </div>
+              <span className="text-[18px] font-black tracking-tight text-foreground lowercase">
+                messenger
+              </span>
             </a>
             
             {/* Desktop Navigation */}
