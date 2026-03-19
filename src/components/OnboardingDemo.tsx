@@ -53,12 +53,13 @@ const OnboardingDemo = () => {
       <div className="md:hidden">
         {/* Mobile Swipe Container */}
         <motion.div 
-          className="flex gap-4 px-6 cursor-grab active:cursor-grabbing"
+          className="flex gap-4 px-6 cursor-grab active:cursor-grabbing touch-pan-y"
           drag="x"
           dragConstraints={{ left: 0, right: 0 }}
+          dragElastic={0.2}
           onDragEnd={onDragEnd}
           animate={{ x: `calc(-${activeIndex} * (100vw - 2rem))` }}
-          transition={{ type: "spring", damping: 30, stiffness: 200 }}
+          transition={{ type: "spring", damping: 25, stiffness: 120 }}
         >
           {steps.map((step, idx) => {
             const isExpanded = expandedId === step.id;

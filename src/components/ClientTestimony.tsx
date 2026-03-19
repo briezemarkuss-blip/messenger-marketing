@@ -32,12 +32,13 @@ const ClientTestimony = () => {
         {/* Mobile View: Swipable Cards */}
         <div className="md:hidden overflow-hidden pb-8">
           <motion.div
-            className="flex gap-4 px-6 cursor-grab active:cursor-grabbing"
+            className="flex gap-4 px-6 cursor-grab active:cursor-grabbing touch-pan-y"
             drag="x"
             dragConstraints={{ left: 0, right: 0 }}
+            dragElastic={0.2}
             onDragEnd={onDragEnd}
             animate={{ x: `calc(-${activeIndex} * (100vw - 2rem))` }}
-            transition={{ type: "spring", damping: 30, stiffness: 200 }}
+            transition={{ type: "spring", damping: 25, stiffness: 120 }}
           >
             {/* Card 1: Quote */}
             <div className="flex-shrink-0 w-[calc(100vw-3rem)] min-h-[400px] bg-white rounded-[2.5rem] border border-black/[0.05] shadow-[0_15px_40px_rgba(0,0,0,0.03)] p-10 relative flex flex-col justify-center">
