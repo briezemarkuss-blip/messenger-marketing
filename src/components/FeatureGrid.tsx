@@ -55,7 +55,7 @@ const FeatureGrid = () => {
                 dragConstraints={{ left: 0, right: 0 }}
                 dragElastic={0.2}
                 onDragEnd={onDragEnd}
-                animate={{ x: `calc(-${activeCompareIndex} * (100vw - 2rem))` }}
+                animate={{ x: `calc(-${activeCompareIndex} * (100vw - 1.5rem))` }}
                 transition={{ type: "spring", damping: 25, stiffness: 120 }}
               >
                 {/* Standard AI Software */}
