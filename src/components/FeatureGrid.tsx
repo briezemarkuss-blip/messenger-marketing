@@ -27,13 +27,13 @@ const FeatureGrid = () => {
         <div
           className="rounded-3xl p-0"
         >
-          
-            <h3 className="text-3xl font-black tracking-tighter text-foreground sm:text-5xl leading-[1.1] text-center">
-              Onboarding in <span className="text-primary">4</span> steps.
-            </h3>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground/80 font-medium text-center mx-auto">
-              From discovery to global deployment — our team handles every step. <br className="hidden sm:block" /> No DIY setup, no guesswork, just proven results.
-            </p>
+
+          <h3 className="text-3xl font-black tracking-tighter text-foreground sm:text-5xl leading-[1.1] text-center">
+            Onboarding in <span className="text-primary">4</span> steps.
+          </h3>
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground/80 font-medium text-center mx-auto">
+            From discovery to global deployment — our team handles every step. <br className="hidden sm:block" /> No DIY setup, no guesswork, just proven results.
+          </p>
           <OnboardingDemo />
         </div>
 
@@ -60,7 +60,7 @@ const FeatureGrid = () => {
               >
                 {/* Scandiweb Managed Service */}
                 <div className="flex-shrink-0 w-[calc(100vw-3rem)] relative flex flex-col min-h-[460px] rounded-[2.5rem] bg-white border border-primary/20 shadow-[0_20px_50px_rgba(var(--primary-rgb),0.05)] overflow-hidden ring-1 ring-primary/10">
-                  <div 
+                  <div
                     className="absolute inset-0 z-0 bg-cover bg-center transition-transform duration-700"
                     style={{ backgroundImage: 'url(/blue.jpg)' }}
                   />
@@ -72,7 +72,7 @@ const FeatureGrid = () => {
                         scandiweb Managed Service
                       </span>
                     </div>
-                    
+
                     <div className="flex-1 px-8 py-4">
                       <h4 className="text-3xl font-black tracking-tighter text-foreground leading-[1.05] mb-8">
                         White-Glove Growth
@@ -107,7 +107,7 @@ const FeatureGrid = () => {
                       Standard AI Software
                     </span>
                   </div>
-                  
+
                   <div className="flex-1 px-8 py-4">
                     <h4 className="text-3xl font-black tracking-tighter text-foreground leading-[1.05] mb-8">
                       Generic Automation
@@ -147,7 +147,7 @@ const FeatureGrid = () => {
             <div className="hidden md:grid md:grid-cols-2 gap-8">
               {/* Scandiweb Managed Service */}
               <div className="relative flex flex-col min-h-[460px] rounded-[2.5rem] bg-white border border-primary/20 shadow-[0_20px_50px_rgba(var(--primary-rgb),0.05)] overflow-hidden ring-1 ring-primary/10 transition-all duration-500 hover:border-primary/40 group/card">
-                <div 
+                <div
                   className="absolute inset-0 z-0 bg-cover bg-center transition-transform duration-700 group-hover/card:scale-105"
                   style={{ backgroundImage: 'url(/blue.jpg)' }}
                 />
@@ -159,7 +159,7 @@ const FeatureGrid = () => {
                       scandiweb Managed Service
                     </span>
                   </div>
-                  
+
                   <div className="flex-1 px-8 py-4">
                     <h4 className="text-3xl font-black tracking-tighter text-foreground leading-[1.05] mb-8">
                       White-Glove Growth
@@ -194,7 +194,7 @@ const FeatureGrid = () => {
                     Standard AI Software
                   </span>
                 </div>
-                
+
                 <div className="flex-1 px-8 py-4">
                   <h4 className="text-3xl font-black tracking-tighter text-foreground leading-[1.05] mb-8">
                     Generic Automation

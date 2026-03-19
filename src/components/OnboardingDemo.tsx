@@ -80,36 +80,38 @@ const OnboardingDemo = () => {
                     <div className="absolute inset-0 z-0 bg-white/40" />
                   </>
                 )}
-                <div className="flex-1 px-8 relative flex flex-col pt-12 pb-8">
-                  <div className="relative z-10 w-full">
-                    <motion.h4 layout="position" className="text-3xl font-black tracking-tighter text-foreground leading-[1.05] mb-6">
-                      {step.title}
-                    </motion.h4>
-                    <motion.div
-                      layout
-                      initial={false}
-                      animate={{ height: isExpanded ? "auto" : "4.5rem" }}
-                      transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
-                      className="overflow-hidden"
-                    >
-                      <p className="text-[14px] leading-relaxed text-muted-foreground/80 font-medium">
-                        {isExpanded ? step.description : step.shortDesc}
-                      </p>
-                    </motion.div>
-                    <motion.div
-                      layout="position"
-                      animate={{ rotate: isExpanded ? 180 : 0 }}
-                      transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
-                      className="mt-4"
-                    >
-                      <ChevronDown className="h-4 w-4 text-foreground/40" />
-                    </motion.div>
+                <div className="relative z-10 flex flex-col flex-1 h-full">
+                  <div className="flex-1 px-8 pt-12 pb-8 flex flex-col">
+                    <div className="relative w-full">
+                      <motion.h4 layout="position" className="text-3xl font-black tracking-tighter text-foreground leading-[1.05] mb-6">
+                        {step.title}
+                      </motion.h4>
+                      <motion.div
+                        layout
+                        initial={false}
+                        animate={{ height: isExpanded ? "auto" : "4.5rem" }}
+                        transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
+                        className="overflow-hidden"
+                      >
+                        <p className="text-[14px] leading-relaxed text-muted-foreground/80 font-medium">
+                          {isExpanded ? step.description : step.shortDesc}
+                        </p>
+                      </motion.div>
+                      <motion.div
+                        layout="position"
+                        animate={{ rotate: isExpanded ? 180 : 0 }}
+                        transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
+                        className="mt-4"
+                      >
+                        <ChevronDown className="h-4 w-4 text-foreground/40" />
+                      </motion.div>
+                    </div>
                   </div>
-                </div>
-                <div className="mt-auto px-8 py-6 bg-gray-50/50 border-t border-black/[0.03] flex items-center justify-end">
-                  <span className="text-[18px] font-black uppercase tracking-tight text-foreground mr-3">STEP</span>
-                  <div className="w-9 h-9 rounded-full bg-black text-white text-lg font-black flex items-center justify-center">
-                    {parseInt(step.id)}
+                  <div className="mt-auto px-8 py-6 bg-gray-50/50 border-t border-black/[0.03] flex items-center justify-end">
+                    <span className="text-[18px] font-black uppercase tracking-tight text-foreground mr-3">STEP</span>
+                    <div className="w-9 h-9 rounded-full bg-black text-white text-lg font-black flex items-center justify-center">
+                      {parseInt(step.id)}
+                    </div>
                   </div>
                 </div>
               </motion.div>
@@ -149,38 +151,40 @@ const OnboardingDemo = () => {
                   <div className="absolute inset-0 z-0 bg-white/40 transition-opacity duration-500 group-hover:bg-white/30" />
                 </>
               )}
-              <div className="flex-1 px-8 relative flex flex-col pt-12">
-                <div className="relative z-10 w-full">
-                  <motion.h4 layout="position" className="text-3xl font-black tracking-tighter text-foreground leading-[1.05] mb-6 flex items-start gap-3">
-                    <span className="flex-1">{step.title}</span>
-                  </motion.h4>
-                  <motion.div
-                    layout
-                    initial={false}
-                    animate={{ height: isExpanded ? "auto" : "4.5rem", opacity: 1 }}
-                    transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
-                    className="overflow-hidden"
-                  >
-                    <p className="text-[14px] leading-relaxed text-muted-foreground/80 font-medium">
-                      {isExpanded ? step.description : step.shortDesc}
-                    </p>
-                  </motion.div>
-                  <motion.div
-                    layout="position"
-                    animate={{ rotate: isExpanded ? 180 : 0 }}
-                    transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
-                    className="mt-3 flex justify-start"
-                  >
-                    <ChevronDown className="h-4 w-4 text-foreground/40 font-black" />
-                  </motion.div>
+              <div className="relative z-10 flex flex-col flex-1 h-full">
+                <div className="flex-1 px-8 pt-12 flex flex-col">
+                  <div className="relative w-full">
+                    <motion.h4 layout="position" className="text-3xl font-black tracking-tighter text-foreground leading-[1.05] mb-6 flex items-start gap-3">
+                      <span className="flex-1">{step.title}</span>
+                    </motion.h4>
+                    <motion.div
+                      layout
+                      initial={false}
+                      animate={{ height: isExpanded ? "auto" : "4.5rem", opacity: 1 }}
+                      transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
+                      className="overflow-hidden"
+                    >
+                      <p className="text-[14px] leading-relaxed text-muted-foreground/80 font-medium">
+                        {isExpanded ? step.description : step.shortDesc}
+                      </p>
+                    </motion.div>
+                    <motion.div
+                      layout="position"
+                      animate={{ rotate: isExpanded ? 180 : 0 }}
+                      transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
+                      className="mt-3 flex justify-start"
+                    >
+                      <ChevronDown className="h-4 w-4 text-foreground/40 font-black" />
+                    </motion.div>
+                  </div>
                 </div>
+                <motion.div layout="position" className="mt-auto px-8 py-6 bg-gray-50/50 border-t border-black/[0.03] flex items-center justify-end">
+                  <span className="text-[18px] font-black uppercase tracking-tight text-foreground mr-3">STEP</span>
+                  <button className="w-9 h-9 rounded-full bg-black text-white text-lg font-black flex items-center justify-center transition-all hover:bg-black/80">
+                    {parseInt(step.id)}
+                  </button>
+                </motion.div>
               </div>
-              <motion.div layout="position" className="mt-auto px-8 py-6 bg-gray-50/50 border-t border-black/[0.03] flex items-center justify-end">
-                <span className="text-[18px] font-black uppercase tracking-tight text-foreground mr-3">STEP</span>
-                <button className="w-9 h-9 rounded-full bg-black text-white text-lg font-black flex items-center justify-center transition-all hover:bg-black/80">
-                  {parseInt(step.id)}
-                </button>
-              </motion.div>
             </motion.div>
           );
         })}
