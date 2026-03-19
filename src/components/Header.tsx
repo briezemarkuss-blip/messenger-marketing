@@ -35,7 +35,7 @@ const Header = () => {
                 >
                   <path d="M12 2C6.477 2 2 6.145 2 11.258c0 2.91 1.455 5.503 3.735 7.152v3.59l3.435-1.886c.9.248 1.854.385 2.83.385 5.523 0 10-4.145 10-9.258S17.523 2 12 2z" />
                 </svg>
-                <span className="absolute inset-0 flex items-center justify-center text-[13px] font-[900] text-primary uppercase tracking-tighter italic ml-[-2px]">
+                <span className="absolute inset-0 flex items-center justify-center text-[13px] font-[900] text-primary uppercase tracking-tighter italic translate-x-[-1px] translate-y-[-0.5px]">
                   AI
                 </span>
               </div>
