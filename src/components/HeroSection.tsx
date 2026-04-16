@@ -1,24 +1,23 @@
-/* refreshed v2 */
 import { motion } from "framer-motion";
-import { useState, useEffect, useRef } from "react";
-import { Play } from "lucide-react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import HeroChatCarousel from "@/components/HeroChatCarousel";
+import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
+import HeroChatCarousel from "@/components/HeroChatCarousel";
 import QuoteDialog from "./QuoteDialog";
 
 const wordAnim = (i: number) => ({
-  initial: { opacity: 0, y: 8 },
+  initial: { opacity: 0, y: 6 },
   animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.8, delay: i * 0.375, ease: [0.42, 0, 0.58, 1] as const },
+  transition: { duration: 0.4, delay: i * 0.07, ease: [0.22, 1, 0.36, 1] as const },
 });
 
 const TYPEWRITER_PHRASES = [
   "An AI that speaks human, learns and adapts.",
-  "Get a free quote to set up this system for your business.",
+  "Request access to set up this system for your business.",
   "Proven to drive 3x higher conversion rates than traditional email marketing.",
 ];
-const TYPEWRITER_START = 3.3;
+const TYPEWRITER_START = 1.4;
 const TYPE_SPEED = 55;
 const DELETE_SPEED = 30;
 const PAUSE_AFTER_TYPE = 2500;
@@ -28,8 +27,6 @@ const HeroSection = () => {
   const [displayedCount, setDisplayedCount] = useState(0);
   const [currentPhraseIdx, setCurrentPhraseIdx] = useState(0);
   const [showCursor, setShowCursor] = useState(false);
-  const measureRef = useRef<HTMLSpanElement | null>(null);
-  const [typeWidth, setTypeWidth] = useState<number | null>(null);
 
   useEffect(() => {
     let cancelled = false;
@@ -67,19 +64,18 @@ const HeroSection = () => {
     return () => { cancelled = true; };
   }, []);
 
-  useEffect(() => {
-    if (measureRef.current) {
-      setTypeWidth(measureRef.current.offsetWidth);
-    }
-  }, []);
-
   return (
-    <section className="relative overflow-hidden px-4 pt-32 sm:pt-20 lg:px-8 lg:pt-56 pb-16 sm:pb-20">
+    <section className="relative overflow-hidden px-4 pt-28 sm:pt-24 lg:px-8 lg:pt-52 pb-16 sm:pb-20">
+      {/* Subtle background gradient */}
+      <div className="pointer-events-none absolute inset-0 -z-10">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,rgba(99,102,241,0.1),rgba(255,255,255,0))]" />
+        <div className="absolute left-1/2 top-0 h-px w-2/3 max-w-xl -translate-x-1/2 bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+      </div>
       <div className="mx-auto max-w-6xl">
         <div className="text-center">
           {/* Desktop headlines */}
-          <div className="hidden sm:block">
-            <h1 className="text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl lg:text-6xl xl:text-7xl whitespace-nowrap" style={{ letterSpacing: "-0.04em" }}>
+          <div className="hidden lg:block">
+            <h1 className="text-5xl font-extrabold tracking-tight text-foreground lg:text-6xl xl:text-7xl" style={{ letterSpacing: "-0.04em" }}>
               {[
                 { word: "Stop", highlight: false },
                 { word: "Being", highlight: false },
@@ -94,7 +90,7 @@ const HeroSection = () => {
               ))}
             </h1>
 
-            <h1 className="text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl lg:text-6xl xl:text-7xl mt-1 whitespace-nowrap" style={{ letterSpacing: "-0.04em" }}>
+            <h1 className="text-5xl font-extrabold tracking-tight text-foreground lg:text-6xl xl:text-7xl mt-1" style={{ letterSpacing: "-0.04em" }}>
               {[
                 { word: "Get", highlight: false },
                 { word: "90%", highlight: true },
@@ -110,9 +106,9 @@ const HeroSection = () => {
             </h1>
           </div>
 
-          {/* Mobile headlines — bold typographic poster */}
-          <div className="sm:hidden" style={{ letterSpacing: "-0.05em" }}>
-            <h1 className="text-4xl font-black text-foreground leading-[0.9]">
+          {/* Mobile/tablet headlines — bold typographic poster */}
+          <div className="lg:hidden" style={{ letterSpacing: "-0.05em" }}>
+            <h1 className="text-[2.75rem] sm:text-6xl font-black text-foreground leading-[0.9]">
               {[
                 { text: "Stop Being", highlight: false, idx: 0 },
                 { text: "Ignored in", highlight: false, idx: 1 },
@@ -124,7 +120,7 @@ const HeroSection = () => {
               ))}
             </h1>
 
-            <h1 className="text-4xl font-black text-foreground leading-[0.9] mt-8">
+            <h1 className="text-[2.75rem] sm:text-6xl font-black text-foreground leading-[0.9] mt-6 sm:mt-8">
               {[
                 { text: "Get 90%", highlight: true, idx: 3 },
                 { text: "Open Rates", highlight: true, idx: 4 },
@@ -139,23 +135,34 @@ const HeroSection = () => {
 
           {/* Subtext — "Context" */}
           <motion.div
-            className="mx-auto pt-24 sm:pt-14 max-w-3xl text-center text-lg text-muted-foreground sm:text-xl"
+            className="mx-auto pt-12 sm:pt-14 max-w-3xl text-center text-lg text-muted-foreground sm:text-xl"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 2.5, ease: [0.42, 0, 0.58, 1] }}
+            transition={{ duration: 0.8, delay: 0.65, ease: [0.22, 1, 0.36, 1] }}
           >
             <div className="space-y-0 leading-relaxed">
               <p>
                 Harness{" "}
-                <span className="inline-flex items-baseline whitespace-nowrap"><img src="https://cdn.simpleicons.org/whatsapp" alt="" className="inline h-5 w-5 align-text-bottom mx-0.5 mr-1.5" /><span className="font-semibold text-foreground">WhatsApp</span></span>,{" "}
-                <span className="inline-flex items-baseline whitespace-nowrap"><img src="https://upload.wikimedia.org/wikipedia/commons/b/be/Facebook_Messenger_logo_2020.svg" alt="" className="inline h-5 w-5 align-text-bottom mx-0.5 mr-1.5" /><span className="font-semibold text-foreground">Messenger</span></span>, and{" "}
-                <span className="inline-flex items-baseline whitespace-nowrap"><img src="https://cdn.simpleicons.org/telegram" alt="" className="inline h-5 w-5 align-text-bottom mx-0.5 mr-1.5" /><span className="font-semibold text-foreground">Telegram</span></span> to recover <span className="text-primary font-bold italic underline decoration-primary/30">3x more</span> abandoned carts than email alone.
+                <Badge variant="secondary" className="inline-flex items-center gap-1 align-middle mx-0.5 font-semibold text-foreground text-sm">
+                  <img src="https://cdn.simpleicons.org/whatsapp" alt="" className="h-3.5 w-3.5" />WhatsApp
+                </Badge>,{" "}
+                <Badge variant="secondary" className="inline-flex items-center gap-1 align-middle mx-0.5 font-semibold text-foreground text-sm">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/b/be/Facebook_Messenger_logo_2020.svg" alt="" className="h-3.5 w-3.5" />Messenger
+                </Badge>, and{" "}
+                <Badge variant="secondary" className="inline-flex items-center gap-1 align-middle mx-0.5 font-semibold text-foreground text-sm">
+                  <img src="https://cdn.simpleicons.org/telegram" alt="" className="h-3.5 w-3.5" />Telegram
+                </Badge>{" "}
+                to recover{" "}
+                <Badge variant="default" className="inline-flex align-middle mx-0.5 font-bold italic text-sm">
+                  3x more
+                </Badge>{" "}
+                abandoned carts than email alone.
               </p>
             </div>
           </motion.div>
 
 
-          <motion.div className="mt-4 flex justify-center" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 2.5, ease: [0.42, 0, 0.58, 1] }}>
+          <motion.div className="mt-4 flex justify-center" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.65, ease: [0.22, 1, 0.36, 1] }}>
             <div className="max-w-2xl w-full">
               <h3 className="text-base font-semibold tracking-tight text-foreground sm:text-lg min-h-[3rem] sm:min-h-[1.75rem] text-center relative flex items-center justify-center">
                 {/* Invisible holder to ensure enough space for the longest phrase */}
@@ -176,14 +183,14 @@ const HeroSection = () => {
 
           {/* CTAs — "Action" */}
           <motion.div
-            className="mt-10 flex flex-col items-center gap-3 sm:flex-row sm:justify-center sm:gap-5"
+            className="mt-10 flex justify-center"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 2.5, ease: [0.42, 0, 0.58, 1] }}
+            transition={{ duration: 0.8, delay: 0.65, ease: [0.22, 1, 0.36, 1] }}
           >
             <QuoteDialog>
               <Button size="lg" className="rounded-full px-7 text-[15px] font-semibold shadow-sm bg-foreground text-background hover:bg-foreground/90 hover:scale-105 transition-all duration-200">
-                Get a free quote
+                Request access
               </Button>
             </QuoteDialog>
           </motion.div>

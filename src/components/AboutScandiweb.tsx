@@ -1,177 +1,121 @@
-import { motion, useAnimation } from "framer-motion";
-import { Users, Code, ShoppingCart, Globe } from "lucide-react";
-import { useState, useEffect } from "react";
-
-const regions = [
-  { 
-    name: "EU", 
-    codes: ["AT", "DE", "FR", "SE"], 
-    desc: "Home to HQ & major retail hubs",
-    logos: [
-      { name: "Laderach", src: "/companies/laderach.png" },
-      { name: "Macron", src: "/companies/macron.png" },
-      { name: "Samsung", src: "/logos/samsung.svg" },
-      { name: "Olympus", src: "/companies/olympus.png" },
-      { name: "Puma", src: "/companies/puma.svg" },
-      { name: "Buff", src: "/companies/buff.svg" },
-      { name: "Adidas", src: "/companies/adidas.svg" },
-      { name: "BMW", src: "/companies/bmw.svg" },
-      { name: "Lamborghini", src: "/companies/lambo.svg" },
-      { name: "McLaren", src: "/companies/mclaren.svg" },
-      { name: "Jaguar", src: "/companies/jaguar.svg" },
-      { name: "Durex", src: "/companies/durex.svg" },
-      { name: "Champion", src: "/companies/champion.svg" }
-    ]
-  },
-  { 
-    name: "North America", 
-    codes: ["US"], 
-    desc: "Focus on Enterprise eCommerce",
-    logos: [
-      { name: "New York Times", src: "/companies/new-york-times.png" },
-      { name: "Adobe", src: "/Partners/adobe-partner.webp" },
-      { name: "Jim Beam", src: "/companies/jim-beam.png" },
-      { name: "Scouting America", src: "/companies/scouting-america.png" },
-      { name: "Land Rover", src: "/companies/landrover.png" },
-      { name: "Olympus", src: "/companies/olympus.png" },
-      { name: "Zumiez", src: "/companies/zumiez.avif" },
-      { name: "Puma", src: "/companies/puma.svg" },
-      { name: "Buff", src: "/companies/buff.svg" },
-      { name: "Adidas", src: "/companies/adidas.svg" },
-      { name: "Toyota", src: "/companies/toyota.svg" },
-      { name: "Walmart", src: "/companies/walmart.svg" },
-      { name: "Champion", src: "/companies/champion.svg" }
-    ]
-  },
-  { 
-    name: "Great Britain", 
-    codes: ["GB"], 
-    desc: "High-competition retail mastery",
-    logos: [
-      { name: "Land Rover", src: "/companies/landrover.png" },
-      { name: "Jaguar", src: "/companies/jaguar.svg" },
-      { name: "McLaren", src: "/companies/mclaren.svg" }
-    ]
-  },
-  { 
-    name: "Middle East", 
-    codes: ["AE", "SA"], 
-    desc: "Large-scale digital transformation",
-    logos: [
-      { name: "Samsung", src: "/logos/samsung.svg" },
-      { name: "Adobe", src: "/Partners/adobe-partner.webp" },
-      { name: "Puma", src: "/companies/puma.svg" },
-      { name: "Buff", src: "/companies/buff.svg" },
-      { name: "BMW", src: "/companies/bmw.svg" },
-      { name: "Lamborghini", src: "/companies/lambo.svg" },
-      { name: "McLaren", src: "/companies/mclaren.svg" }
-    ]
-  },
-  { 
-    name: "Latin America", 
-    codes: ["MX", "BR", "CO"], 
-    desc: "Growth-market experts",
-    logos: [
-      { name: "Samsung", src: "/logos/samsung.svg" },
-      { name: "Adobe", src: "/Partners/adobe-partner.webp" },
-      { name: "Puma", src: "/companies/puma.svg" },
-      { name: "Toyota", src: "/companies/toyota.svg" },
-      { name: "Adidas", src: "/companies/adidas.svg" }
-    ]
-  },
-  { 
-    name: "Canada", 
-    codes: ["CA"], 
-    desc: "Distribution & logistics networks",
-    logos: [
-      { name: "Adobe", src: "/Partners/adobe-partner.webp" },
-      { name: "Jim Beam", src: "/companies/jim-beam.png" },
-      { name: "Puma", src: "/companies/puma.svg" },
-      { name: "Buff", src: "/companies/buff.svg" },
-      { name: "Zumiez", src: "/companies/zumiez.avif" },
-      { name: "Adidas", src: "/companies/adidas.svg" },
-      { name: "Toyota", src: "/companies/toyota.svg" }
-    ]
-  },
-];
+import { motion } from "framer-motion";
+import { MapPin, Mail } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
 
 const stats = [
-  { icon: Users, value: "600+", label: "Team Members" },
-  { icon: ShoppingCart, value: "20+", label: "Years in eCommerce" },
-  { icon: Code, value: "50+", label: "AI Engineers" },
-  { icon: Globe, value: "6", label: "Global Regions" },
+  { value: "600+", label: "Experts" },
+  { value: "20+",  label: "Years"   },
+  { value: "50+",  label: "AI Engineers" },
+  { value: "2003", label: "Founded"  },
 ];
+
+const fadeUp = (delay = 0) => ({
+  initial: { opacity: 0, y: 16 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, margin: "-40px" },
+  transition: { duration: 0.55, delay, ease: [0.23, 1, 0.32, 1] },
+});
+
 
 const AboutScandiweb = () => {
   return (
     <section className="px-4 pb-0 sm:px-6 lg:px-8">
-      <div className="mx-auto max-w-4xl space-y-4">
-        <div className="rounded-3xl p-0">
+      <div className="mx-auto max-w-4xl">
+
+        {/* Heading */}
+        <motion.div className="mb-10 sm:mb-12" {...fadeUp()}>
           <h3 className="text-3xl font-black tracking-tighter text-foreground sm:text-5xl leading-[1.1] text-center">
             About <span className="text-primary">Scandiweb.</span>
           </h3>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground/80 font-medium text-center mx-auto">
-            One of the leading eCommerce agencies globally — 20+ years of building, scaling, and marketing for global brands with a team of 600+ across 6 regions. <a href="https://scandiweb.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline transition-all">Visit home page</a>
-          </p>
+        </motion.div>
 
-          {/* Unified Responsive Large Card */}
-          <div className="mt-12 sm:mt-16 rounded-[2.5rem] bg-white border border-black/[0.05] shadow-[0_15px_40px_rgba(0,0,0,0.03)] overflow-hidden p-8 sm:p-12">
-            {/* Stats Section */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-4 md:divide-x divide-black/[0.03]">
-              {stats.map((stat, idx) => (
-                <div key={stat.label} className={`flex flex-col items-center justify-center text-center px-2 ${idx % 2 === 0 && idx < 2 ? 'md:border-none' : ''}`}>
-                  <p className="text-3xl md:text-4xl font-black tracking-tighter text-foreground mb-1">{stat.value}</p>
-                  <p className="text-[10px] md:text-[11px] font-black text-foreground/40 uppercase tracking-widest leading-tight">
-                    {stat.label}
-                  </p>
-                </div>
-              ))}
-            </div>
+        {/* Bento Grid */}
+        <div className="flex flex-col md:flex-row gap-4 md:min-h-[580px]">
 
-            <div className="h-px bg-black/[0.03] my-8 md:my-10" />
+          {/* ── Left column ─────────────────────────────── */}
+          <div className="flex flex-col gap-4 flex-1">
 
-            {/* Regions Section */}
-            <div className="px-0 sm:px-2">
-              <h4 className="text-[10px] md:text-[11px] font-black tracking-widest text-foreground/30 uppercase mb-6 md:mb-8">
-                Global Presence
-              </h4>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-8 md:gap-y-10">
-                {regions.map((region) => (
-                  <div key={region.name} className="flex flex-col">
-                    <div className="flex gap-1.5 mb-3 md:mb-4">
-                      {region.codes.map((code) => (
-                        <img
-                          key={code}
-                          src={`https://flagcdn.com/24x18/${code.toLowerCase()}.png`}
-                          srcSet={`https://flagcdn.com/48x36/${code.toLowerCase()}.png 2x`}
-                          width="24"
-                          height="18"
-                          alt={code}
-                          className="rounded-sm opacity-60"
-                        />
-                      ))}
-                    </div>
-                    <h5 className="text-base md:text-lg font-black tracking-tighter text-foreground">{region.name}</h5>
-                    <p className="text-[13px] text-muted-foreground/60 font-medium mt-1 leading-relaxed">
-                      {region.desc}
+            {/* Text card */}
+            <motion.div className="flex-[3]" {...fadeUp(0.05)}>
+              <Card className="h-full rounded-[2rem] border-black/5 shadow-none">
+                <CardContent className="p-8 h-full flex flex-col justify-between">
+                  <div>
+                    <h4 className="text-2xl font-black tracking-tighter text-foreground leading-[1.1] mb-5">
+                      One of the world's most experienced eCommerce agencies.
+                    </h4>
+                    <p className="text-[15px] leading-relaxed text-muted-foreground font-medium">
+                      Founded in 2003, Scandiweb has spent over two decades
+                      building complex software for some of the world's most
+                      demanding brands — Puma, Canon, Jaguar, Helly Hansen,
+                      and Ford — across 36 countries.
                     </p>
-                    
-                    <div className="flex flex-wrap items-center gap-3 mt-4">
-                      {region.logos.map((logo) => (
-                        <img 
-                          key={logo.name} 
-                          src={logo.src} 
-                          alt={logo.name} 
-                          className="h-5 md:h-6 w-auto object-contain grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
-                          title={logo.name}
-                        />
-                      ))}
-                    </div>
+                    <p className="text-[15px] leading-relaxed text-muted-foreground font-medium mt-4">
+                      That depth of engineering experience is what we apply to
+                      AI-agile delivery today: building custom systems that
+                      encode your business logic into working software — faster
+                      and more affordably than was previously possible.
+                    </p>
                   </div>
-                ))}
-              </div>
-            </div>
+
+                  <div className="mt-8 space-y-2">
+                    <Separator className="mb-6 opacity-[0.06]" />
+                    <a
+                      href="https://maps.google.com/?q=Citadeles+iela+6A,+Riga"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-[13px] text-muted-foreground/60 font-medium hover:text-foreground transition-colors"
+                    >
+                      <MapPin className="h-3.5 w-3.5 shrink-0" />
+                      Citadeles iela 6A, Riga, LV-1010
+                    </a>
+                    <a
+                      href="mailto:hello@scandiweb.com"
+                      className="flex items-center gap-2 text-[13px] text-muted-foreground/60 font-medium hover:text-foreground transition-colors"
+                    >
+                      <Mail className="h-3.5 w-3.5 shrink-0" />
+                      hello@scandiweb.com
+                    </a>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+
+            {/* 2×2 Stats grid */}
+            <motion.div className="flex-[2] grid grid-cols-2 gap-4" {...fadeUp(0.1)}>
+              {stats.map((stat, i) => (
+                <motion.div key={stat.label} {...fadeUp(0.1 + i * 0.05)}>
+                  <Card className="rounded-[2rem] border-black/5 shadow-none">
+                    <CardContent className="p-6 flex flex-col justify-end h-full min-h-[120px]">
+                      <p className="text-5xl font-black tracking-tighter text-primary leading-none">
+                        {stat.value}
+                      </p>
+                      <p className="mt-2 text-[12px] font-semibold text-muted-foreground/60 uppercase tracking-widest">
+                        {stat.label}
+                      </p>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))}
+            </motion.div>
           </div>
+
+          {/* ── Right column — image slots ───────────────── */}
+          <div className="flex flex-col gap-4 flex-1">
+
+            <motion.div className="flex-1" {...fadeUp(0.08)}>
+              <Card className="h-full rounded-[2rem] border-black/5 shadow-none overflow-hidden min-h-[220px]">
+                <img src="/scandiweb-office.jpg" alt="Scandiweb office" className="w-full h-full object-cover object-[right_top]" />
+              </Card>
+            </motion.div>
+
+            <motion.div className="flex-1" {...fadeUp(0.13)}>
+              <Card className="h-full rounded-[2rem] border-black/5 shadow-none overflow-hidden min-h-[220px]">
+                <img src="/team.webp" alt="Scandiweb team" className="w-full h-full object-cover" />
+              </Card>
+            </motion.div>
+          </div>
+
         </div>
       </div>
     </section>

@@ -8,15 +8,6 @@ const certifications = [
   { label: "MIT SDM", id: "mit", src: "/footer labels/mit-sdm.svg" },
 ];
 
-const brands = [
-  { name: "SAMSUNG", src: "/logos/samsung.svg" },
-  { name: "The New York Times", src: "/companies/new-york-times.png" },
-  { name: "Adobe", src: "/Partners/adobe-partner.webp" },
-  { name: "Land Rover", src: "/companies/landrover.png" },
-  { name: "Jim Beam", src: "/companies/jim-beam.png" },
-  { name: "Olympus", src: "/companies/olympus.png" },
-  { name: "Macron", src: "/companies/macron.png" },
-];
 
 const Footer = () => {
   return (
@@ -45,9 +36,9 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-20 order-1 lg:order-2">
+      <div className="mb-20 order-1 lg:order-2">
           {/* Branding Section */}
-          <div className="lg:col-span-7 space-y-6">
+          <div className="space-y-6">
             <div className="space-y-3">
               <div className="flex items-center group w-fit">
                 <div className="relative flex items-center justify-center mr-2 transition-transform">
@@ -77,22 +68,6 @@ const Footer = () => {
             </p>
           </div>
 
-          {/* Trust Section */}
-          <div className="lg:col-span-5 flex flex-col items-start lg:items-end lg:text-right space-y-8">
-            <h4 className="text-[11px] font-black tracking-[0.1em] text-foreground/30 uppercase">
-              Trusted by 700+ brands including
-            </h4>
-            <div className="flex flex-wrap items-center gap-x-12 gap-y-10 lg:justify-end opacity-80">
-              {brands.map((brand) => (
-                <img 
-                  key={brand.name} 
-                  src={brand.src} 
-                  alt={brand.name} 
-                  className="h-8 md:h-10 w-auto object-contain transition-all hover:opacity-100 hover:grayscale-0"
-                />
-              ))}
-            </div>
-          </div>
         </div>
 
         {/* Bottom Bar */}

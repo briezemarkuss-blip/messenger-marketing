@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -13,21 +14,27 @@ const NAV_LINKS = [
   { name: "FAQ", href: "#faq" },
 ];
 
+function scrollTo(id: string) {
+  document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+}
+
 const Header = () => {
+  const [sheetOpen, setSheetOpen] = useState(false);
+
   return (
     <div className="fixed inset-x-0 top-0 z-50">
-      <header className="border-b border-border/60 bg-background/80 backdrop-blur-sm">
+      <header className="border-b border-border/60 bg-background/85 backdrop-blur-md">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6">
           <div className="flex items-center gap-8">
             <a href="/" className="flex items-center hover:opacity-90 transition-opacity group">
               <div className="relative flex items-center justify-center mr-1.5 transition-transform group-hover:scale-110">
-                <svg 
-                  viewBox="0 0 24 24" 
+                <svg
+                  viewBox="0 0 24 24"
                   className="w-9 h-9 text-primary"
-                  fill="none" 
-                  stroke="currentColor" 
+                  fill="none"
+                  stroke="currentColor"
                   strokeWidth="1.5"
-                  strokeLinecap="round" 
+                  strokeLinecap="round"
                   strokeLinejoin="round"
                 >
                   <path d="M12 2C6.477 2 2 6.145 2 11.258c0 2.91 1.455 5.503 3.735 7.152v3.59l3.435-1.886c.9.248 1.854.385 2.83.385 5.523 0 10-4.145 10-9.258S17.523 2 12 2z" />
@@ -40,16 +47,18 @@ const Header = () => {
                 messenger
               </span>
             </a>
-            
+
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center gap-6">
               {NAV_LINKS.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
-                  className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                  onClick={(e) => { e.preventDefault(); scrollTo(link.href.slice(1)); }}
+                  className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors relative group/link"
                 >
                   {link.name}
+                  <span className="absolute -bottom-0.5 left-0 h-px w-0 bg-foreground/40 transition-all duration-200 group-hover/link:w-full" />
                 </a>
               ))}
             </nav>
@@ -58,13 +67,13 @@ const Header = () => {
           <div className="flex items-center gap-3">
             <QuoteDialog>
               <Button variant="outline" size="sm" className="hidden sm:flex rounded-full px-5 text-xs font-semibold">
-                Get a free quote
+                Request access
               </Button>
             </QuoteDialog>
 
             {/* Mobile Navigation */}
             <div className="md:hidden">
-              <Sheet>
+              <Sheet open={sheetOpen} onOpenChange={setSheetOpen}>
                 <SheetTrigger asChild>
                   <Button variant="ghost" size="icon" className="h-9 w-9">
                     <Menu className="h-5 w-5" />
@@ -77,6 +86,7 @@ const Header = () => {
                       <a
                         key={link.name}
                         href={link.href}
+                        onClick={(e) => { e.preventDefault(); scrollTo(link.href.slice(1)); setSheetOpen(false); }}
                         className="text-lg font-semibold text-foreground hover:text-primary transition-colors"
                       >
                         {link.name}
@@ -85,7 +95,7 @@ const Header = () => {
                     <hr className="border-border" />
                     <QuoteDialog>
                       <Button className="w-full rounded-full mt-4">
-                        Get a free quote
+                        Request access
                       </Button>
                     </QuoteDialog>
                   </nav>

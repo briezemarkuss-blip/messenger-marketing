@@ -25,6 +25,10 @@ const Index = () => {
             <FeatureGrid />
           </section>
 
+          <section id="faq" className="max-sm:snap-start scroll-mt-20">
+            <FAQSection />
+          </section>
+
           <section id="about" className="max-sm:snap-start scroll-mt-20">
             <AboutScandiweb />
           </section>
@@ -32,10 +36,6 @@ const Index = () => {
           <div className="max-sm:snap-start scroll-mt-20">
             <SocialProof />
           </div>
-          
-          <section id="faq" className="max-sm:snap-start scroll-mt-20">
-            <FAQSection />
-          </section>
         </div>
       </main>
       <Footer />

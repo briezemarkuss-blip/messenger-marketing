@@ -1,5 +1,8 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
 import QuoteDialog from "./QuoteDialog";
 import {
   Accordion,
@@ -38,39 +41,53 @@ const FAQSection = () => {
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-2xl font-extrabold tracking-tight text-foreground sm:text-3xl" style={{ letterSpacing: "-0.02em" }}>
-            Frequently Asked Questions
+          <h2 className="text-3xl font-black tracking-tighter text-foreground sm:text-5xl leading-[1.1]">
+            Frequently <span className="text-primary italic">Asked.</span>
           </h2>
 
-          <Accordion type="single" collapsible className="mt-12 flex flex-col gap-3 text-left">
-            {faqs.map((faq, i) => (
-              <AccordionItem
-                key={i}
-                value={`item-${i}`}
-                className="rounded-xl border border-border bg-secondary/30 px-5 transition-colors data-[state=open]:border-foreground/20 data-[state=open]:shadow-[0_0_0_1px_hsl(var(--foreground)/0.08)]"
-              >
-                <AccordionTrigger className="py-5 text-left text-[15px] font-semibold text-foreground hover:no-underline [&[data-state=open]>svg]:rotate-90">
-                  {faq.q}
-                </AccordionTrigger>
-                <AccordionContent className="text-[15px] leading-relaxed text-muted-foreground pb-5">
-                  {faq.a}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
+          <Card className="mt-12 rounded-2xl border-border/60 shadow-none text-left">
+            <CardContent className="p-2">
+              <Accordion type="single" collapsible className="flex flex-col">
+                {faqs.map((faq, i) => (
+                  <AccordionItem
+                    key={i}
+                    value={`item-${i}`}
+                    className="border-0 px-4 transition-colors data-[state=open]:bg-secondary/40 rounded-xl"
+                  >
+                    <AccordionTrigger className="py-5 text-left text-[15px] font-semibold text-foreground hover:no-underline [&[data-state=open]>svg]:rotate-90">
+                      <span className="flex items-center gap-3">
+                        <Badge variant="secondary" className="shrink-0 w-6 h-6 rounded-full p-0 flex items-center justify-center text-[10px] font-black text-foreground/40">
+                          {i + 1}
+                        </Badge>
+                        {faq.q}
+                      </span>
+                    </AccordionTrigger>
+                    <AccordionContent className="text-[15px] leading-relaxed text-muted-foreground pb-5 pl-9">
+                      {faq.a}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+            </CardContent>
+          </Card>
         </motion.div>
+
+        <Separator className="mt-14 opacity-10" />
 
         {/* CTA */}
         <motion.div
-          className="mt-14 py-10 text-center"
+          className="mt-10 py-4 text-center"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-40px" }}
           transition={{ duration: 0.5, delay: 0.1 }}
         >
           <QuoteDialog>
-            <Button size="lg" className="rounded-full px-7 text-[15px] font-semibold shadow-sm bg-foreground text-background hover:bg-foreground/90 transition-all duration-200">
-              Get a free quote
+            <Button
+              size="lg"
+              className="rounded-full px-7 text-[15px] font-semibold shadow-sm bg-foreground text-background hover:bg-foreground/90 transition-all duration-200"
+            >
+              Request access
             </Button>
           </QuoteDialog>
         </motion.div>
